@@ -1,12 +1,13 @@
 # .bashrc
 
-# cat <<EOF
-# Available commands and aliases:
-# launch, o, n, ll, fe, fd, ping*, extract
-# EOF
-
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
+
+if [ -e /usr/share/terminfo/x/xterm-256color ]; then
+  export TERM='xterm-256color'
+else
+  export TERM='xterm-color'
+fi
 
 # Source global definitions
 [ -f /etc/bashrc ] && source /etc/bashrc
@@ -19,24 +20,16 @@ bind 'TAB:menu-complete'
 [ -f /usr/bin/exa ] && alias ls="exa" && alias ll="exa -l" # alias ll='ls -lAsh'
 
 function launch () {
-    nohup $@ > /dev/null &
+  nohup $@ > /dev/null &
 }
 function o () {
-    xdg-open "$1" &> /dev/null
+  xdg-open "$1" &> /dev/null
 }
 
-function ping* () {
-  if [ $# -eq 0 ]
-  then
-    until ping goo.gl -c 5;
-      do sleep 1;
-    done;
-    notify-send "We're back ONLINE!";
-    while true; do ping goo.gl; sleep 1; done;
-  else
-    while true; do ping $1; sleep 1; done;
-  fi
-}
+# Default applications
+export BROWSER=/usr/bin/firefox
+export EDITOR=/usr/bin/vim
+export VISUAL=/usr/bin/subl
 
 # ignore case, long prompt, allow colors for ls and grep colors
 export LESS="-iMXR"
@@ -53,9 +46,11 @@ export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
 export LESS_TERMCAP_mr=$(tput rev)
 export LESS_TERMCAP_mh=$(tput dim)
 
-export BROWSER=/usr/bin/firefox
-export EDITOR=/usr/bin/vim
-export VISUAL=/usr/bin/subl
+# FZF CONFIG
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#export FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g "" 2> /dev/null'
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 # NNN CONFIG
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -77,14 +72,18 @@ n() {
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 # NNN CONFIG
 
-# Include path of GNAT
-PATH="/opt/gnat/bin:/opt/spark2014/bin:$PATH"; export PATH
-
-# FZF CONFIG
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-#export FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g "" 2> /dev/null'
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+function ping* () {
+  if [ $# -eq 0 ]
+  then
+    until ping goo.gl -c 5;
+      do sleep 1;
+    done;
+    notify-send "We're back ONLINE!";
+    while true; do ping goo.gl; sleep 1; done;
+  else
+    while true; do ping $1; sleep 1; done;
+  fi
+}
 
 # extract any archive
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -143,7 +142,6 @@ export SCM_CHECK=true
 export BASH_IT_AUTOMATIC_RELOAD_AFTER_CONFIG_CHANGE=1
 
 # Load Bash It
-source $BASH_IT/bash_it.sh
-# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
-# BASH_IT CONFIG
+[ -f $BASH_IT/bash_it.sh ] && source $BASH_IT/bash_it.sh
+# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
