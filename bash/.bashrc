@@ -25,6 +25,12 @@ function launch () {
 function o () {
   xdg-open "$1" &> /dev/null
 }
+function git-sync () {
+  git add .
+  git commit -a -m "sync"
+  git pull --rebase origin master
+  git push origin master
+}
 
 # Default applications
 export BROWSER=/usr/bin/firefox
