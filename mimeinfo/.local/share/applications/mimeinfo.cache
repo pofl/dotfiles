@@ -1,0 +1,26 @@
+[MIME Cache]
+x-scheme-handler/tg=telegramdesktop.desktop;
+text/plain=sublime_text.desktop;atom.desktop;org.gnome.gedit.desktop;emacs.desktop;
+x-scheme-handler/tg=sublime_text.desktop;atom.desktop;org.gnome.gedit.desktop;emacs.desktop;
+application/x-awk=sublime_text.desktop;atom.desktop;org.gnome.gedit.desktop;emacs.desktop;
+application/x-perl=sublime_text.desktop;atom.desktop;org.gnome.gedit.desktop;emacs.desktop;
+application/x-php=sublime_text.desktop;atom.desktop;org.gnome.gedit.desktop;emacs.desktop;
+application/x-shellscript=sublime_text.desktop;atom.desktop;org.gnome.gedit.desktop;emacs.desktop;
+text/x-c=sublime_text.desktop;atom.desktop;org.gnome.gedit.desktop;emacs.desktop;
+text/x-c++=sublime_text.desktop;atom.desktop;org.gnome.gedit.desktop;emacs.desktop;
+text/x-c++hdr=sublime_text.desktop;atom.desktop;org.gnome.gedit.desktop;emacs.desktop;
+text/x-c++src=sublime_text.desktop;atom.desktop;org.gnome.gedit.desktop;emacs.desktop;
+text/x-fortran=sublime_text.desktop;atom.desktop;org.gnome.gedit.desktop;emacs.desktop;
+text/x-java=sublime_text.desktop;atom.desktop;org.gnome.gedit.desktop;emacs.desktop;
+text/x-log=sublime_text.desktop;atom.desktop;org.gnome.gedit.desktop;emacs.desktop;
+text/x-makefile=sublime_text.desktop;atom.desktop;org.gnome.gedit.desktop;emacs.desktop;
+text/x-moc=sublime_text.desktop;atom.desktop;org.gnome.gedit.desktop;emacs.desktop;
+text/x-pascal=sublime_text.desktop;atom.desktop;org.gnome.gedit.desktop;emacs.desktop;
+text/x-patch=sublime_text.desktop;atom.desktop;org.gnome.gedit.desktop;emacs.desktop;
+text/x-python=sublime_text.desktop;atom.desktop;org.gnome.gedit.desktop;emacs.desktop;
+text/x-readme=sublime_text.desktop;atom.desktop;org.gnome.gedit.desktop;emacs.desktop;
+text/x-scheme=sublime_text.desktop;atom.desktop;org.gnome.gedit.desktop;emacs.desktop;
+text/x-tcl=sublime_text.desktop;atom.desktop;org.gnome.gedit.desktop;emacs.desktop;
+text/x-tex=sublime_text.desktop;atom.desktop;org.gnome.gedit.desktop;emacs.desktop;
+text/x-chdr=sublime_text.desktop;atom.desktop;org.gnome.gedit.desktop;emacs.desktop;
+text/x-csrc=sublime_text.desktop;atom.desktop;org.gnome.gedit.desktop;emacs.desktop;
