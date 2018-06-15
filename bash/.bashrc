@@ -52,14 +52,12 @@ export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
 export LESS_TERMCAP_mr=$(tput rev)
 export LESS_TERMCAP_mh=$(tput dim)
 
-# FZF CONFIG
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# FZF CONFIG >>>>>>>>>>>>>>>>>>>>>>
 #export FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g "" 2> /dev/null'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-# NNN CONFIG
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# NNN CONFIG >>>>>>>>>>>>>>>>>>>>>>
 export NNN_SHOW_HIDDEN=1
 export NNN_DE_FILE_MANAGER=nautilus
 export NNN_TMPFILE="/tmp/nnn"
@@ -76,7 +74,28 @@ n() {
   fi
 }
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-# NNN CONFIG
+
+# Aliases >>>>>>>>>>>>>>>>>>>>>>>>>
+alias su='/bin/su --shell=/usr/bin/fish -p'
+alias ls='ls --group-directories-first'
+alias ll='ls -lAhF --group-directories-first'
+
+alias g='git'
+alias ga='git add'
+alias gb='git branch'
+alias gc='git commit'
+alias gco='git checkout'
+alias gf='git fetch'
+alias gs='git status'
+
+alias z='sudo zypper'
+alias zdup='sudo zypper dup'
+alias zin='sudo zypper in'
+alias zinfo='zypper info'
+alias zrm='sudo zypper rm'
+alias zse='zypper se'
+alias zlr='zypper lr -u'
+# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 function ping* () {
   if [ $# -eq 0 ]
@@ -115,8 +134,7 @@ extract () {
 }
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-# BASH_IT CONFIG
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# BASH_IT CONFIG >>>>>>>>>>>>>>>>>>
 
 # Path to the bash it configuration
 export BASH_IT="$HOME/.bash_it"
