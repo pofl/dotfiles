@@ -142,7 +142,7 @@ alias zlr='zypper lr -u'
 function launch () {
   nohup $@ > /dev/null &
 }
-function o () {
+function open () {
   xdg-open "$1" &> /dev/null
 }
 function git-sync () {

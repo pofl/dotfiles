@@ -1,5 +1,14 @@
 [core]
     editor = vim
+[status]
+    showStash = true # git-status(1) will display the number of entries currently stashed away
+[merge]
+    # ff = false # forbid fast-forward merges, because merge commits is historic information that doesn't hurt you and might be useful to somebody
+[rebase]
+    autoSquah = true # enable --autosquash option by default
+[pull]
+    ff = only # Do not allow merging the fetched branch unless it can be fast-forwarded
+    # rebase = interactive # rebase -i branches on top of the fetched branch
 [alias]
     log1 = log --abbrev-commit --all --graph --color --date=short --pretty=format:'%C(bold yellow)%h%Creset%C(bold red)%d%Creset %s%C(dim white)  %an %C(bold green)(%ad)%Creset'
     log2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
