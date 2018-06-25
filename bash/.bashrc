@@ -37,8 +37,11 @@ export BROWSER=/usr/bin/firefox
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/subl
 
-# ignore case, long prompt, allow colors for ls and grep colors
-export LESS="-iMXR"
+export LESS="-iMR"
+# -i - ignore case when searching (but respect case if search term contains uppercase letters)
+# -X - do not clear screen on exit
+# -F - exit if text is less then one screen long
+# -R - was on by default on my system, something related to colors
 
 # Colored man output
 export MANROFFOPT='-c'
