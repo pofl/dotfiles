@@ -28,8 +28,8 @@ function o () {
 function git-sync () {
   git add .
   git commit -a -m "sync"
-  git pull --rebase origin master
-  git push origin master
+  git pull --verbose --rebase origin master
+  git push --verbose origin master
 }
 
 # Default applications
