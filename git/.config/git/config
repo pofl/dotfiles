@@ -13,7 +13,7 @@
 [rebase]
     autoSquah = true # enable --autosquash option by default
 [pull]
-    ff = only # Do not allow merging the fetched branch unless it can be fast-forwarded
+    # ff = only # Do not allow merging the fetched branch unless it can be fast-forwarded
     # rebase = interactive # rebase -i branches on top of the fetched branch
 [alias]
     log1 = log --abbrev-commit --all --graph --color --date=short --pretty=format:'%C(bold yellow)%h%Creset%C(bold red)%d%Creset %s%C(dim white)  %an %C(bold green)(%ad)%Creset'
@@ -24,7 +24,8 @@
     log6 = log --graph --abbrev-commit --decorate  --date=short --format=format:'%C(bold yellow)%h%Creset%x09%C(green)%ad%Creset%n''  %x09%x09%C(white)%s%C(reset) %C(dim white)- %an%C(reset)%n''  %x09%x09%C(bold red)%d%Creset'
 
     lg = "!git log1"
-    graph = "!git log3"
+    graph = log --abbrev-commit --graph
+    # graph = "!git log3"
 
     alias = "!git config -l | grep alias | cut -c 7-" # List all aliases
     wdiff = diff --word-diff
@@ -62,6 +63,8 @@
     cmd = meld "$LOCAL" "$REMOTE"
 [merge]
     tool = meld
+[mergetool "kdiff3"]
+    cmd = kdiff3 "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
 [mergetool "meld"]
     cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
 
