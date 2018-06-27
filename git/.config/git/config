@@ -35,7 +35,8 @@
 
     recommit = commit --amend
     unstage = reset HEAD
-    # uncommit = reset --hard HEAD~1
+    untrack = rm --cached
+    uncommit = reset --hard HEAD~1
 
     a = add
     b = branch
