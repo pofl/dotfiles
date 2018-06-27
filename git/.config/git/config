@@ -24,6 +24,7 @@
     log6 = log --graph --abbrev-commit --decorate  --date=short --format=format:'%C(bold yellow)%h%Creset%x09%C(green)%ad%Creset%n''  %x09%x09%C(white)%s%C(reset) %C(dim white)- %an%C(reset)%n''  %x09%x09%C(bold red)%d%Creset'
 
     lg = "!git log1"
+    dog = log --abbrev-commit --decorate --oneline --graph
     graph = log --abbrev-commit --graph
     # graph = "!git log3"
 
@@ -63,8 +64,6 @@
     cmd = meld "$LOCAL" "$REMOTE"
 [merge]
     tool = meld
-[mergetool "kdiff3"]
-    cmd = kdiff3 "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
 [mergetool "meld"]
     cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
 
