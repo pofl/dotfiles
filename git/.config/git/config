@@ -24,8 +24,9 @@
     log6 = log --graph --abbrev-commit --decorate  --date=short --format=format:'%C(bold yellow)%h%Creset%x09%C(green)%ad%Creset%n''  %x09%x09%C(white)%s%C(reset) %C(dim white)- %an%C(reset)%n''  %x09%x09%C(bold red)%d%Creset'
 
     lg = "!git log1"
-    dog = log --abbrev-commit --decorate --oneline --graph
     graph = log --abbrev-commit --graph
+    dog = log --abbrev-commit --decorate --oneline --graph
+    adog = log --abbrev-commit --decorate --oneline --graph --all
     # graph = "!git log3"
 
     alias = "!git config -l | grep alias | cut -c 7-" # List all aliases
