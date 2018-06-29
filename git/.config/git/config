@@ -17,28 +17,24 @@
     # rebase = interactive # rebase -i branches on top of the fetched branch
 [alias]
     log1 = log --abbrev-commit --all --graph --color --date=short --pretty=format:'%C(bold yellow)%h%Creset%C(bold red)%d%Creset %s%C(dim white)  %an %C(bold green)(%ad)%Creset'
-    log2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
-    log3 = log --graph --abbrev-commit --decorate  --date=short --format=format:'%C(bold blue)%h%Creset%x09%C(green)%ad %C(dim white)%an%Creset%C(bold red)%d%Creset%n''%x09%x09> %C(white)%s%C(reset) %C(reset)'
-    log4 = log --graph --abbrev-commit --decorate  --date=short --format=format:'%C(bold yellow)%h%Creset%x09%C(green)%ad %Creset%C(bold red)%d%Creset%n''  %x09%x09%C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
-    log5 = log --graph --abbrev-commit --decorate  --date=short --format=format:'%C(bold yellow)%h%Creset%x09%C(green)%ad%Creset%n''  %x09%x09%C(white)%s%C(reset) %C(dim white)- %an%C(reset)%n''  %x09%x09%C(bold red)%d%Creset'
-    log6 = log --abbrev-commit --all --graph --color --date=iso --pretty=format:'-- %C(bold red)%D%n''%C(bold yellow)%h%C(dim white) - %an (%ad)%n''%C(white)%s'
+    log2 = log --abbrev-commit --all --graph --color --date=iso --pretty=format:'-- %C(bold red)%D%n''%C(bold yellow)%h%C(dim white) %an (%ad)%n''%C(white)%s'
 
-    lg = "!git log1"
-    lgg = "!got log6"
-    graph = log --abbrev-commit --graph
+    dg = log --abbrev-commit --graph
+    adg = log --abbrev-commit --graph --all
     dog = log --abbrev-commit --decorate --oneline --graph
     adog = log --abbrev-commit --decorate --oneline --graph --all
-    # graph = "!git log3"
+    lg = "!git log1"
+    lgg = "!git log2"
 
     alias = "!git config -l | grep alias | cut -c 7-" # List all aliases
     branch-name = "!git rev-parse --abbrev-ref HEAD" # used in other aliases
-    publish = "!git push -u origin $(git branch-name)"
+    publish = "!git push -u origin $(git branch-name)" # When you started new work on a private branch and want to publish it as a new public branch of the same name
 
     wdiff = diff --word-diff
-    recommit = commit --amend
-    unstage = reset HEAD
     untrack = rm --cached
     uncommit = reset --hard HEAD~1
+    recommit = commit --amend
+    unstage = reset HEAD
 
     a = add
     b = branch
@@ -69,4 +65,3 @@
     tool = meld
 [mergetool "meld"]
     cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
-
