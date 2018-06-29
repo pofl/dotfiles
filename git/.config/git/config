@@ -24,6 +24,7 @@
     log6 = log --abbrev-commit --all --graph --color --date=iso --pretty=format:'-- %C(bold red)%D%n''%C(bold yellow)%h%C(dim white) - %an (%ad)%n''%C(white)%s'
 
     lg = "!git log1"
+    lgg = "!got log6"
     graph = log --abbrev-commit --graph
     dog = log --abbrev-commit --decorate --oneline --graph
     adog = log --abbrev-commit --decorate --oneline --graph --all
