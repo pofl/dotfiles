@@ -13,7 +13,7 @@
 [rebase]
     autoSquah = true # enable --autosquash option by default
 [pull]
-    # ff = only # Do not allow merging the fetched branch unless it can be fast-forwarded
+    ff = only # Do not allow merging the fetched branch unless it can be fast-forwarded
     # rebase = interactive # rebase -i branches on top of the fetched branch
 [alias]
     log1 = log --abbrev-commit --all --graph --color --date=short --pretty=format:'%C(bold yellow)%h%Creset%C(bold red)%d%Creset %s%C(dim white)  %an %C(bold green)(%ad)%Creset'
@@ -63,5 +63,5 @@
     cmd = meld "$LOCAL" "$REMOTE"
 [merge]
     tool = meld
-[mergetool "meld"]
-    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+#[mergetool "meld"]
+#    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
