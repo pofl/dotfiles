@@ -16,8 +16,6 @@ fi
 [ -f ~/.sensible.bash ] && source ~/.sensible.bash
 # Midnight Commander wrapper
 [ -f /usr/bin/mc ] && alias mc='. /usr/share/mc/mc-wrapper.sh'
-# Replace ls with exa
-[ -f /usr/bin/exa ] && alias ls="exa" && alias ll="exa -l" # alias ll='ls -lAsh'
 
 function launch () {
   nohup $@ > /dev/null &
@@ -79,9 +77,11 @@ n() {
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 # Aliases >>>>>>>>>>>>>>>>>>>>>>>>>
-alias su='/bin/su --shell=/usr/bin/fish -p'
-alias ls='ls --group-directories-first'
+#alias su='/bin/su --shell=/usr/bin/fish -p'
+alias ls='ls --group-directories-first --hyperlinks'
 alias ll='ls -lAhF --group-directories-first'
+# Replace ls with exa
+[ -f /usr/bin/exa ] && alias ls="exa" && alias ll="exa -l" # alias ll='ls -lAsh'
 
 alias g='git'
 alias ga='git add'

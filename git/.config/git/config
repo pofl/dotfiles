@@ -17,14 +17,19 @@
     # rebase = interactive # rebase -i branches on top of the fetched branch
 [alias]
     log1 = log --abbrev-commit --all --graph --color --date=short --pretty=format:'%C(bold yellow)%h%Creset%C(bold red)%d%Creset %s%C(dim white)  %an %C(bold green)(%ad)%Creset'
-    log2 = log --abbrev-commit --all --graph --color --date=iso --pretty=format:'-- %C(bold red)%D%n''%C(bold yellow)%h%C(dim white) %an (%ad)%n''%C(white)%s'
+    log2 = log --abbrev-commit --all --graph --color --date=iso --pretty=format:'┬─ %C(bold red)%D%C(reset)%n''├ %C(yellow)%h%C(dim white) %an (%ad)%n''└ %C(white)%s'
+    log2 = log --abbrev-commit --all --graph --color --date=iso --pretty=format:'╮%C(bold red)%D%C(reset)%n''│%C(yellow)%h%C(dim white) %an (%ad)%n''╰%C(white)%s'
+    # log --abbrev-commit --all --graph --color --date=iso --pretty=format:'-- %C(bold red)%D%C(reset)%n''%C(yellow)%h%C(dim white) %an (%ad)%n''%C(white)%s'
+    # ╮┬─┐
+    # │├
+    # ╰└╵╷
 
-    dg = log --abbrev-commit --graph
-    adg = log --abbrev-commit --graph --all
     dog = log --abbrev-commit --decorate --oneline --graph
     adog = log --abbrev-commit --decorate --oneline --graph --all
     lg = "!git log1"
     lgg = "!git log2"
+    dg = log --abbrev-commit --graph
+    adg = log --abbrev-commit --graph --all
 
     alias = "!git config -l | grep alias | cut -c 7-" # List all aliases
     branch-name = "!git rev-parse --abbrev-ref HEAD" # used in other aliases
