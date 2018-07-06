@@ -64,8 +64,8 @@
     tool = meld
 [difftool]
     prompt = false
-[difftool "meld"]
-    cmd = meld "$LOCAL" "$REMOTE"
+#[difftool "meld"]
+#    cmd = meld "$LOCAL" "$REMOTE"
 [merge]
     tool = meld
 #[mergetool "meld"]
