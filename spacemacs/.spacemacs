@@ -327,6 +327,9 @@ you should place your code here."
   ;;                                 (search . " %i %-12:c"))
   ;;      )
 
+  ;; Powerline separator symbols
+  (setq powerline-default-separator 'nil)
+
   ;; resize inline images
   (setq org-image-actual-width 500)
 
