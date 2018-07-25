@@ -14,10 +14,10 @@ fi
 [ -f /etc/bash.bashrc ] && source /etc/bash.bashrc
 # Source sensible-bash
 [ -f ~/.sensible.bash ] && source ~/.sensible.bash
-# Midnight Commander wrapper
-[ -f /usr/share/mc/mc-wrapper.sh ] && alias mc='. /usr/share/mc/mc-wrapper.sh'
 # Replace ls with exa
 [ -f /usr/bin/exa ] && alias ls="exa" && alias ll="exa -l" # alias ll='ls -lAsh'
+# Midnight Commander wrapper
+[ -f /usr/bin/mc ] && alias mc='. /usr/share/mc/mc-wrapper.sh'
 
 function launch () {
   nohup $@ > /dev/null &
@@ -28,8 +28,8 @@ function o () {
 function git-sync () {
   git add .
   git commit -a -m "sync"
-  git pull --rebase origin master
-  git push origin master
+  git pull --verbose --rebase origin master
+  git push --verbose origin master
 }
 
 # Default applications
@@ -37,8 +37,11 @@ export BROWSER=/usr/bin/firefox
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/subl
 
-# ignore case, long prompt, allow colors for ls and grep colors
-export LESS="-iMXR"
+export LESS="-iMR"
+# -i - ignore case when searching (but respect case if search term contains uppercase letters)
+# -X - do not clear screen on exit
+# -F - exit if text is less then one screen long
+# -R - was on by default on my system, something related to colors
 
 # Colored man output
 export MANROFFOPT='-c'
@@ -52,14 +55,12 @@ export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
 export LESS_TERMCAP_mr=$(tput rev)
 export LESS_TERMCAP_mh=$(tput dim)
 
-# FZF CONFIG
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# FZF CONFIG >>>>>>>>>>>>>>>>>>>>>>
 #export FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g "" 2> /dev/null'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-# NNN CONFIG
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# NNN CONFIG >>>>>>>>>>>>>>>>>>>>>>
 export NNN_SHOW_HIDDEN=1
 export NNN_DE_FILE_MANAGER=nautilus
 export NNN_TMPFILE="/tmp/nnn"
@@ -76,7 +77,30 @@ n() {
   fi
 }
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-# NNN CONFIG
+
+# Aliases >>>>>>>>>>>>>>>>>>>>>>>>>
+#alias su='/bin/su --shell=/usr/bin/fish -p'
+alias ls='ls --group-directories-first --hyperlinks'
+alias ll='ls -lAhF --group-directories-first'
+# Replace ls with exa
+[ -f /usr/bin/exa ] && alias ls="exa" && alias ll="exa -l" # alias ll='ls -lAsh'
+
+alias g='git'
+alias ga='git add'
+alias gb='git branch'
+alias gc='git commit'
+alias gco='git checkout'
+alias gf='git fetch'
+alias gs='git status'
+
+alias z='sudo zypper'
+alias zdup='sudo zypper dup'
+alias zin='sudo zypper in'
+alias zinfo='zypper info'
+alias zrm='sudo zypper rm'
+alias zse='zypper se'
+alias zlr='zypper lr -u'
+# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 function ping* () {
   if [ $# -eq 0 ]
@@ -115,8 +139,7 @@ extract () {
 }
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-# BASH_IT CONFIG
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# BASH_IT CONFIG >>>>>>>>>>>>>>>>>>
 
 # Path to the bash it configuration
 export BASH_IT="$HOME/.bash_it"

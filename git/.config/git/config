@@ -1,24 +1,45 @@
 [core]
     editor = vim
+
+    pager = "less -iXFR"
+    # -i - ignore case when searching (but respect case if search term contains uppercase letters)
+    # -X - do not clear screen on exit
+    # -F - exit if text is less then one screen long
+    # -R - was on by default on my system, something related to colors
+[status]
+    showStash = true # git-status(1) will display the number of entries currently stashed away
+[merge]
+    # ff = false # forbid fast-forward merges, because merge commits is historic information that doesn't hurt you and might be useful to somebody
+[rebase]
+    autoSquah = true # enable --autosquash option by default
+[pull]
+    ff = only # Do not allow merging the fetched branch unless it can be fast-forwarded
+    # rebase = interactive # rebase -i branches on top of the fetched branch
 [alias]
     log1 = log --abbrev-commit --all --graph --color --date=short --pretty=format:'%C(bold yellow)%h%Creset%C(bold red)%d%Creset %s%C(dim white)  %an %C(bold green)(%ad)%Creset'
-    log2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
-    log3 = log --graph --abbrev-commit --decorate  --date=short --format=format:'%C(bold blue)%h%Creset%x09%C(green)%ad %C(dim white)%an%Creset%C(bold red)%d%Creset%n''%x09%x09> %C(white)%s%C(reset) %C(reset)'
-    log4 = log --graph --abbrev-commit --decorate  --date=short --format=format:'%C(bold yellow)%h%Creset%x09%C(green)%ad %Creset%C(bold red)%d%Creset%n''  %x09%x09%C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
-    log5 = log --abbrev-commit --all --graph --color --date=short --pretty=format:"%h%x09%d%x20%s"
-    log6 = log --graph --abbrev-commit --decorate  --date=short --format=format:'%C(bold yellow)%h%Creset%x09%C(green)%ad%Creset%n''  %x09%x09%C(white)%s%C(reset) %C(dim white)- %an%C(reset)%n''  %x09%x09%C(bold red)%d%Creset'
+    log2 = log --abbrev-commit --all --graph --color --date=iso --pretty=format:'┬─ %C(bold red)%D%C(reset)%n''├ %C(yellow)%h%C(dim white) %an (%ad)%n''└ %C(white)%s'
+    log2 = log --abbrev-commit --all --graph --color --date=iso --pretty=format:'╮%C(bold red)%D%C(reset)%n''│%C(yellow)%h%C(dim white) %an (%ad)%n''╰%C(white)%s'
+    # log --abbrev-commit --all --graph --color --date=iso --pretty=format:'-- %C(bold red)%D%C(reset)%n''%C(yellow)%h%C(dim white) %an (%ad)%n''%C(white)%s'
+    # ╮┬─┐
+    # │├
+    # ╰└╵╷
 
+    dog = log --abbrev-commit --decorate --oneline --graph
+    adog = log --abbrev-commit --decorate --oneline --graph --all
     lg = "!git log1"
-    graph = "!git log3"
+    lgg = "!git log2"
+    dg = log --abbrev-commit --graph
+    adg = log --abbrev-commit --graph --all
 
     alias = "!git config -l | grep alias | cut -c 7-" # List all aliases
-    wdiff = diff --word-diff
     branch-name = "!git rev-parse --abbrev-ref HEAD" # used in other aliases
-    publish = "!git push -u origin $(git branch-name)"
+    publish = "!git push -u origin $(git branch-name)" # When you started new work on a private branch and want to publish it as a new public branch of the same name
 
+    wdiff = diff --word-diff
+    untrack = rm --cached
+    uncommit = reset --hard HEAD~1
     recommit = commit --amend
     unstage = reset HEAD
-    # uncommit = reset --hard HEAD~1
 
     a = add
     b = branch
@@ -43,10 +64,9 @@
     tool = meld
 [difftool]
     prompt = false
-[difftool "meld"]
-    cmd = meld "$LOCAL" "$REMOTE"
+#[difftool "meld"]
+#    cmd = meld "$LOCAL" "$REMOTE"
 [merge]
     tool = meld
-[mergetool "meld"]
-    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
-
+#[mergetool "meld"]
+#    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
