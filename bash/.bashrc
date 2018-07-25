@@ -1,7 +1,7 @@
 # .bashrc
 
 bind 'set show-all-if-ambiguous on'
-bind 'TAB:menu-complete'
+# bind 'TAB:menu-complete'
 
 if [ -e /usr/share/terminfo/x/xterm-256color ]; then
   export TERM='xterm-256color'
@@ -15,7 +15,7 @@ fi
 # Source sensible-bash
 [ -f ~/.sensible.bash ] && source ~/.sensible.bash
 # Midnight Commander wrapper
-[ -f /usr/bin/mc ] && alias mc='. /usr/share/mc/mc-wrapper.sh'
+[ -f /usr/share/mc/mc-wrapper.sh ] && alias mc='. /usr/share/mc/mc-wrapper.sh'
 # Replace ls with exa
 [ -f /usr/bin/exa ] && alias ls="exa" && alias ll="exa -l" # alias ll='ls -lAsh'
 
