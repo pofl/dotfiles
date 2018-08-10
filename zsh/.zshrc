@@ -84,6 +84,8 @@ COMPLETION_WAITING_DOTS="true"
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+export ENHANCD_COMMAND=c
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -145,6 +147,7 @@ function launch () {
 function open () {
   xdg-open "$1" &> /dev/null
 }
+alias O=open
 function git-sync () {
   git add .
   git commit -a -m "sync"

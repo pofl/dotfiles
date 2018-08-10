@@ -19,6 +19,8 @@
     log1 = log --abbrev-commit --all --graph --color --date=short --pretty=format:'%C(bold yellow)%h%Creset%C(bold red)%d%Creset %s%C(dim white)  %an %C(bold green)(%ad)%Creset'
     log2 = log --abbrev-commit --all --graph --color --date=iso --pretty=format:'┬─ %C(bold red)%D%C(reset)%n''├ %C(yellow)%h%C(dim white) %an (%ad)%n''└ %C(white)%s'
     log2 = log --abbrev-commit --all --graph --color --date=iso --pretty=format:'╮%C(bold red)%D%C(reset)%n''│%C(yellow)%h%C(dim white) %an (%ad)%n''╰%C(white)%s'
+    log2 = log --abbrev-commit --all --graph --color --date=iso --pretty=format:'╮%C(bold red)%D%C(reset)%n''╰%C(yellow)%h%C(dim white) %an (%ad)%n'' %C(white)%s'
+    log2 = log --abbrev-commit --all --graph --color --date=iso --pretty=format:'%C(yellow)%h%C(dim white) %an (%ad)%n''%C(bold red)%D%C(reset)%n''%C(white)%s'
     # log --abbrev-commit --all --graph --color --date=iso --pretty=format:'-- %C(bold red)%D%C(reset)%n''%C(yellow)%h%C(dim white) %an (%ad)%n''%C(white)%s'
     # ╮┬─┐
     # │├

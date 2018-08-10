@@ -7,6 +7,7 @@
 	[
 		"EasyDiff",
 		"MarkdownPreview",
-		"Package Control"
+		"Package Control",
+		"TextFormatting"
 	]
 }
