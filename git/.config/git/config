@@ -28,13 +28,14 @@
 
     dog = log --abbrev-commit --decorate --oneline --graph
     adog = log --abbrev-commit --decorate --oneline --graph --all
+    adogs = log --abbrev-commit --decorate --oneline --graph --all --simplify-by-decoration
     lg = "!git log1"
     lgg = "!git log2"
     dg = log --abbrev-commit --graph
     adg = log --abbrev-commit --graph --all
 
     alias = "!git config -l | grep alias | cut -c 7-" # List all aliases
-    branch-name = "!git rev-parse --abbrev-ref HEAD" # used in other aliases
+    branch-name = "!git rev-parse --abbrev-ref HEAD" # May be used in other aliases
     publish = "!git push -u origin $(git branch-name)" # When you started new work on a private branch and want to publish it as a new public branch of the same name
     
     # shows list of files that have a merge conflict
