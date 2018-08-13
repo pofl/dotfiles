@@ -77,4 +77,4 @@
 [merge]
     tool = meld
 [mergetool "meld"]
-    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+    cmd = meld --diff "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED" --diff "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
