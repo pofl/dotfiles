@@ -72,9 +72,10 @@
     tool = meld
 [difftool]
     prompt = false
-#[difftool "meld"]
-#    cmd = meld "$LOCAL" "$REMOTE"
+[difftool "meld"]
+    # Required because otherwise git falls back to mergetool cmd
+    cmd = meld "$LOCAL" "$REMOTE"
 [merge]
     tool = meld
 [mergetool "meld"]
-    cmd = meld --diff "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED" --diff "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+    cmd = meld --diff "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED" --diff "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"

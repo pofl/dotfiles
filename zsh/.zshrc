@@ -9,8 +9,6 @@ export SHELL=zsh
 # Path to your oh-my-zsh installation.
 export ZSH=/home/pofl/.oh-my-zsh
 
-ENHANCD_DOT_SHOW_FULLPATH=1
-
 #ZSH_THEME="ys"
 ZSH_THEME="bira"
 #ZSH_THEME="frisk"
@@ -85,6 +83,7 @@ COMPLETION_WAITING_DOTS="true"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 export ENHANCD_COMMAND=c
+ENHANCD_DOT_SHOW_FULLPATH=1
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
