@@ -6,8 +6,9 @@
 	[
 	],
 	"origami_auto_zoom_on_focus": 0.75,
+	"fade_fold_buttons": false,
 	"tab_size": 2,
 	"theme": "Adaptive.sublime-theme",
-	"translate_tabs_to_spaces": false,
-	"use_tab_stops": false
+	"translate_tabs_to_spaces": true,
+	"use_tab_stops": true
 }
