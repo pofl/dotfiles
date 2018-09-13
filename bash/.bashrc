@@ -80,7 +80,7 @@ n() {
 
 # Aliases >>>>>>>>>>>>>>>>>>>>>>>>>
 #alias su='/bin/su --shell=/usr/bin/fish -p'
-alias ls='ls --group-directories-first --hyperlinks'
+alias ls='ls --group-directories-first --hyperlink'
 alias ll='ls -lAhF --group-directories-first'
 # Replace ls with exa
 [ -f /usr/bin/exa ] && alias ls="exa" && alias ll="exa -l" # alias ll='ls -lAsh'
