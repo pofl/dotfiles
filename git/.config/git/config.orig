@@ -1,0 +1,81 @@
+[core]
+    editor = vim
+
+    pager = "less -iXFR"
+    # -i - ignore case when searching (but respect case if search term contains uppercase letters)
+    # -X - do not clear screen on exit
+    # -F - exit if text is less then one screen long
+    # -R - was on by default on my system, something related to colors
+[status]
+    showStash = true # git-status(1) will display the number of entries currently stashed away
+[merge]
+    # ff = false # forbid fast-forward merges, because merge commits is historic information that doesn't hurt you and might be useful to somebody
+[rebase]
+    autoSquah = true # enable --autosquash option by default
+[pull]
+    ff = only # Do not allow merging the fetched branch unless it can be fast-forwarded
+    # rebase = interactive # rebase -i branches on top of the fetched branch
+[alias]
+    log1 = log --abbrev-commit --all --graph --color --date=short --pretty=format:'%C(bold yellow)%h%Creset%C(bold red)%d%Creset %s%C(dim white)  %an %C(bold green)(%ad)%Creset'
+    log2 = log --abbrev-commit --all --graph --color --date=iso --pretty=format:'┬─ %C(bold red)%D%C(reset)%n''├ %C(yellow)%h%C(dim white) %an (%ad)%n''└ %C(white)%s'
+    log2 = log --abbrev-commit --all --graph --color --date=iso --pretty=format:'╮%C(bold red)%D%C(reset)%n''│%C(yellow)%h%C(dim white) %an (%ad)%n''╰%C(white)%s'
+    log2 = log --abbrev-commit --all --graph --color --date=iso --pretty=format:'╮%C(bold red)%D%C(reset)%n''╰%C(yellow)%h%C(dim white) %an (%ad)%n'' %C(white)%s'
+    log2 = log --abbrev-commit --all --graph --color --date=iso --pretty=format:'%C(yellow)%h%C(dim white) %an (%ad)%n''%C(bold red)%D%C(reset)%n''%C(white)%s'
+    # log --abbrev-commit --all --graph --color --date=iso --pretty=format:'-- %C(bold red)%D%C(reset)%n''%C(yellow)%h%C(dim white) %an (%ad)%n''%C(white)%s'
+    # ╮┬─┐
+    # │├
+    # ╰└╵╷
+
+    dog = log --abbrev-commit --decorate --oneline --graph
+    adog = log --abbrev-commit --decorate --oneline --graph --all
+    adogs = log --abbrev-commit --decorate --oneline --graph --all --simplify-by-decoration
+    lg = "!git log1"
+    lgg = "!git log2"
+    dg = log --abbrev-commit --graph
+    adg = log --abbrev-commit --graph --all
+
+    alias = "!git config -l | grep alias | cut -c 7-" # List all aliases
+    branch-name = "!git rev-parse --abbrev-ref HEAD" # May be used in other aliases
+    publish = "!git push -u origin $(git branch-name)" # When you started new work on a private branch and want to publish it as a new public branch of the same name
+
+    # shows list of files that have a merge conflict
+    conflicts = diff --name-only --diff-filter=U
+    changes = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+    wdiff = diff --word-diff
+    untrack = rm --cached
+    uncommit = reset --hard HEAD~1
+    rollback = reset --hard
+    recommit = commit --amend
+    unstage = reset HEAD
+
+    a = add
+    b = branch
+    c = commit
+    co = checkout
+    f = fetch
+    s = status
+[color]
+    branch = auto
+    diff = auto
+    grep = auto
+    interactive = auto
+    showbranch = auto
+    status = auto
+    ui = auto
+[color "status"]
+    added = green bold
+    changed = red bold
+    untracked = cyan bold
+
+[diff]
+    tool = meld
+[difftool]
+    prompt = false
+[difftool "meld"]
+    # Required because otherwise git falls back to mergetool cmd
+    cmd = meld "$LOCAL" "$REMOTE"
+[merge]
+    tool = meld
+[mergetool "meld"]
+    cmd = meld --diff "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED" --diff "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"

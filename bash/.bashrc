@@ -33,9 +33,9 @@ function git-sync () {
 }
 
 # Default applications
-export BROWSER=/usr/bin/firefox
-export EDITOR=/usr/bin/vim
-export VISUAL=/usr/bin/subl
+#export BROWSER=/usr/bin/firefox
+#export EDITOR=/usr/bin/vim
+#export VISUAL=/usr/bin/subl
 
 export LESS="-iMR"
 # -i - ignore case when searching (but respect case if search term contains uppercase letters)
@@ -101,19 +101,6 @@ alias zrm='sudo zypper rm'
 alias zse='zypper se'
 alias zlr='zypper lr -u'
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
-function ping* () {
-  if [ $# -eq 0 ]
-  then
-    until ping goo.gl -c 5;
-      do sleep 1;
-    done;
-    notify-send "We're back ONLINE!";
-    while true; do ping goo.gl; sleep 1; done;
-  else
-    while true; do ping $1; sleep 1; done;
-  fi
-}
 
 # extract any archive
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

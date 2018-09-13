@@ -1,16 +1,16 @@
 {
 	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
 	"ensure_newline_at_eof_on_save": true,
+	"fade_fold_buttons": false,
 	"font_face": "Fira Code",
 	"font_size": 11,
 	"ignored_packages":
 	[
 	],
 	"origami_auto_zoom_on_focus": 0.75,
-	"fade_fold_buttons": false,
+	"save_on_focus_lost": true,
 	"tab_size": 2,
 	"theme": "Adaptive.sublime-theme",
 	"translate_tabs_to_spaces": true,
-	"save_on_focus_lost": true,
 	"use_tab_stops": true
 }
