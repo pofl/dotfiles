@@ -42,6 +42,7 @@
     conflicts = diff --name-only --diff-filter=U
     changes = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
+    dirfftool = diff --dir-diff
     wdiff = diff --word-diff
     untrack = rm --cached
     uncommit = reset --hard HEAD~1

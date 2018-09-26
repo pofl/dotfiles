@@ -10,8 +10,8 @@ export SHELL=zsh
 export ZSH=/home/pofl/.oh-my-zsh
 
 #ZSH_THEME="ys"
-#ZSH_THEME="bira"
-ZSH_THEME="fishy"
+ZSH_THEME="bira"
+#ZSH_THEME="fishy"
 #ZSH_THEME="frisk"
 #ZSH_THEME="xiong-chiamiov-plus"
 #ZSH_THEME="agnoster"
