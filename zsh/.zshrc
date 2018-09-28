@@ -120,7 +120,7 @@ source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Aliases >>>>>>>>>>>>>>>>>>>>>>>>>
-alias su='/bin/su --shell=/usr/bin/fish -p'
+alias su='ZDOTDIR=/home/pofl/ /bin/su --shell=/usr/bin/zsh'
 alias ls='ls --group-directories-first'
 alias ll='ls -lAhF --group-directories-first'
 

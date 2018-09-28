@@ -79,7 +79,7 @@ n() {
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 # Aliases >>>>>>>>>>>>>>>>>>>>>>>>>
-#alias su='/bin/su --shell=/usr/bin/fish -p'
+alias su='/bin/su --command=bash\ --rcfile=/home/pofl/.bashrc'
 alias ls='ls --group-directories-first --hyperlink'
 alias ll='ls -lAhF --group-directories-first'
 # Replace ls with exa
