@@ -123,6 +123,10 @@ source $ZSH/oh-my-zsh.sh
 alias su='ZDOTDIR=/home/pofl/ /bin/su --shell=/usr/bin/zsh'
 alias ls='ls --group-directories-first'
 alias ll='ls -lAhF --group-directories-first'
+alias www='python -m SimpleHTTPServer 8000' # start a web server in any folder you'd like
+alias ipe='curl ipinfo.io/ip' # display external IP
+alias ipi='ipconfig getifaddr en0' # display internal IP
+alias getpass="openssl rand -base64 12" # generate random 12 character password
 
 alias g='git'
 alias ga='git add'

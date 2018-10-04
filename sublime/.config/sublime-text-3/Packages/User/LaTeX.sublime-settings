@@ -1,4 +1,8 @@
 // These settings override both User and Default settings for the LaTeX syntax
 {
 	"font_size": 13,
+  "wrap_width": 80,
+  "draw_centered": true,
+  "spell_check": true,
+  "dictionary": "Packages/User/German_de_DE.dic",
 }
