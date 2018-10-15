@@ -38,8 +38,8 @@
     branch-name = "!git rev-parse --abbrev-ref HEAD" # May be used in other aliases
     publish = "!git push -u origin $(git branch-name)" # When you started new work on a private branch and want to publish it as a new public branch of the same name
 
-    # shows list of files that have a merge conflict
-    conflicts = diff --name-only --diff-filter=U
+    conflicts = diff --name-only --diff-filter=U # shows list of files that have a merge conflict
+    del-orig = "!find . -name '*.orig' -delete" # delete all .orig files which were created when using mergetool
     changes = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
     dirfftool = diff --dir-diff
