@@ -78,30 +78,6 @@ n() {
 }
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-# Aliases >>>>>>>>>>>>>>>>>>>>>>>>>
-alias su='/bin/su --command=bash\ --rcfile=/home/pofl/.bashrc'
-alias ls='ls --group-directories-first --hyperlink'
-alias ll='ls -lAhF --group-directories-first'
-# Replace ls with exa
-[ -f /usr/bin/exa ] && alias ls="exa" && alias ll="exa -l" # alias ll='ls -lAsh'
-
-alias g='git'
-alias ga='git add'
-alias gb='git branch'
-alias gc='git commit'
-alias gco='git checkout'
-alias gf='git fetch'
-alias gs='git status'
-
-alias z='sudo zypper'
-alias zdup='sudo zypper dup'
-alias zin='sudo zypper in'
-alias zinfo='zypper info'
-alias zrm='sudo zypper rm'
-alias zse='zypper se'
-alias zlr='zypper lr -u'
-# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
 # extract any archive
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 extract () {
@@ -124,6 +100,11 @@ extract () {
     echo "'$1' is not a valid file!"
   fi
 }
+# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+# Aliases >>>>>>>>>>>>>>>>>>>>>>>>>
+alias su='/bin/su --command=bash\ --rcfile=/home/pofl/.bashrc'
+source ~/.aliases.sh
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 # BASH_IT CONFIG >>>>>>>>>>>>>>>>>>

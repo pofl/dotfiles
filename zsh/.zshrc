@@ -100,6 +100,8 @@ plugins=(
   bgnotify
   wd
 
+  zsh-bash # make the shell more Bash compatible. redefines the source command to act more like Bash does. Enables Bash completions.
+  colored-man-pages
   suse
   #chucknorris
 
@@ -121,28 +123,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Aliases >>>>>>>>>>>>>>>>>>>>>>>>>
 alias su='ZDOTDIR=/home/pofl/ /bin/su --shell=/usr/bin/zsh'
-alias ls='ls --group-directories-first'
-alias ll='ls -lAhF --group-directories-first'
-alias www='python -m SimpleHTTPServer 8000' # start a web server in any folder you'd like
-alias ipe='curl ipinfo.io/ip' # display external IP
-alias ipi='ipconfig getifaddr en0' # display internal IP
-alias getpass="openssl rand -base64 12" # generate random 12 character password
-
-alias g='git'
-alias ga='git add'
-alias gb='git branch'
-alias gc='git commit'
-alias gco='git checkout'
-alias gf='git fetch'
-alias gs='git status'
-
-alias z='sudo zypper'
-alias zdup='sudo zypper dup'
-alias zin='sudo zypper in'
-alias zinfo='zypper info'
-alias zrm='sudo zypper rm'
-alias zse='zypper se'
-alias zlr='zypper lr -u'
+source ~/.aliases.sh
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 function launch () {
