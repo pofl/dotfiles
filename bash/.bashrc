@@ -102,7 +102,7 @@ extract () {
 }
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-# Aliases >>>>>>>>>>>>>>>>>>>>>>>>>
+# Aliases >>>>><>>>>>>>>>>>>>>>>>>>
 alias su='/bin/su --command=bash\ --rcfile=/home/pofl/.bashrc'
 source ~/.aliases.sh
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
