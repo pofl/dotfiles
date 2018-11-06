@@ -92,6 +92,7 @@ ENHANCD_DOT_SHOW_FULLPATH=1
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  gitfast # faster but less featureful git autocompletion
   sbt
   scala
 
