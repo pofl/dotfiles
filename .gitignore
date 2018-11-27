@@ -1,3 +1,5 @@
 *.sublime-*
 Package Control.*
-!*.sublime-settingsRequester.history.json*
+!*.sublime-settings
+Requester.history.json*
+

@@ -46,6 +46,7 @@
     dirfftool = diff --dir-diff
     wdiff = diff --word-diff
     untrack = rm --cached
+    untrack-dir = rm --cached -r
     uncommit = reset --hard HEAD~1
     rollback = reset --hard
     recommit = commit --amend
