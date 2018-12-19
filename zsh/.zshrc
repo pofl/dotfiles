@@ -140,6 +140,13 @@ function git-sync () {
   git pull --verbose --rebase origin master
   git push --verbose origin master
 }
+function g() {
+  if [[ $# > 0 ]]; then
+    git $@
+  else
+    git status
+  fi
+}
 # NNN CONFIG >>>>>>>>>>>>>>>>>>>>>>
 export NNN_SHOW_HIDDEN=1
 export NNN_DE_FILE_MANAGER=nautilus
