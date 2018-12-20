@@ -45,7 +45,7 @@
     del-orig = "!find . -name '*.orig' -delete" # delete all .orig files which were created when using mergetool
     changes = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
-    dirfftool = diff --dir-diff
+    dirfftool = difftool --dir-diff
     wdiff = diff --word-diff
     untrack = rm --cached
     untrack-dir = rm --cached -r
