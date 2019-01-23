@@ -9,7 +9,6 @@
 	[
 		"Vintage"
 	],
-	//"origami_auto_zoom_on_focus": 0.75,
 	"save_on_focus_lost": true,
 	"tab_size": 2,
 	"theme": "Adaptive.sublime-theme",

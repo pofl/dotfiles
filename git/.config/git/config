@@ -1,7 +1,7 @@
 [core]
     editor = vim
 
-    pager = "less -iXFR"
+    pager = "less --tabs=4 -iXFR"
     # -i - ignore case when searching (but respect case if search term contains uppercase letters)
     # -X - do not clear screen on exit
     # -F - exit if text is less then one screen long
@@ -12,6 +12,8 @@
     # ff = false # forbid fast-forward merges, because merge commits is historic information that doesn't hurt you and might be useful to somebody
 [rebase]
     autoSquah = true # enable --autosquash option by default
+[push]
+    default = current # If you forget to include the name of the branch, with this option, git will try to push to the branch with the same name and will create it if it doesn't exist
 [pull]
     ff = only # Do not allow merging the fetched branch unless it can be fast-forwarded
     # rebase = interactive # rebase -i branches on top of the fetched branch
@@ -39,7 +41,7 @@
     publish = "!git push -u origin $(git branch-name)" # When you started new work on a private branch and want to publish it as a new public branch of the same name
     unpublish = "!git push origin -d $(git branch-name)" # Delete the current branch on origin
 
-    conflicts = diff --name-only --diff-filter=U # shows list of files that have a merge conflict
+    conflicts = diff --name-only --diff-filter=U # 2shows list of files that have a merge conflict
     del-orig = "!find . -name '*.orig' -delete" # delete all .orig files which were created when using mergetool
     changes = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
@@ -58,7 +60,7 @@
     co = checkout
     f = fetch
     s = status
-[color]
+[color] # these add color to the output of various commands
     branch = auto
     diff = auto
     grep = auto
@@ -76,7 +78,7 @@
 [difftool]
     prompt = false
 [difftool "meld"]
-    # Required because otherwise git falls back to mergetool cmd
+    # Required because otherwise git falls back to the command configured under mergetool
     cmd = meld "$LOCAL" "$REMOTE"
 [merge]
     tool = meld

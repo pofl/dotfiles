@@ -22,3 +22,9 @@ alias zinfo='zypper info'
 alias zrm='sudo zypper rm'
 alias zse='zypper se'
 alias zlr='zypper lr -u'
+
+alias weath='curl wttr.in'
+
+# !$ argument of the last command
+# !^ first argument of the last command
+# !keyword skip Ctrl+R and run last command that contained keyword
