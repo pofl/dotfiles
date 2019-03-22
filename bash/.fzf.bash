@@ -1,14 +1,14 @@
 # Setup fzf
 # ---------
-if [[ ! "$PATH" == */home/pofl/Dropbox/configs/fzf/.fzf/bin* ]]; then
-  export PATH="$PATH:/home/pofl/Dropbox/configs/fzf/.fzf/bin"
+if [[ ! "$PATH" == */home/linuxbrew/.linuxbrew/opt/fzf/bin* ]]; then
+  export PATH="$PATH:/home/linuxbrew/.linuxbrew/opt/fzf/bin"
 fi
 
 # Auto-completion
 # ---------------
-[[ $- == *i* ]] && source "/home/pofl/Dropbox/configs/fzf/.fzf/shell/completion.bash" 2> /dev/null
+[[ $- == *i* ]] && source "/home/linuxbrew/.linuxbrew/opt/fzf/shell/completion.bash" 2> /dev/null
 
 # Key bindings
 # ------------
-source "/home/pofl/Dropbox/configs/fzf/.fzf/shell/key-bindings.bash"
+source "/home/linuxbrew/.linuxbrew/opt/fzf/shell/key-bindings.bash"
 
