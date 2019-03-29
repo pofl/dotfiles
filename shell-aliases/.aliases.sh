@@ -16,7 +16,6 @@ alias gco='git checkout'
 alias gf='git fetch'
 alias gs='git status'
 
-alias z='sudo zypper'
 alias zdup='sudo zypper dup'
 alias zin='sudo zypper in'
 alias zinfo='zypper info'
