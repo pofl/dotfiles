@@ -100,6 +100,8 @@ plugins=(
   sudo # ESC twice: Puts sudo in front of the current command, or the last one if the command line is empty.
   bgnotify
   wd
+  z
+  fzf-z
 
   zsh-bash # make the shell more Bash compatible. redefines the source command to act more like Bash does. Enables Bash completions.
   colored-man-pages
