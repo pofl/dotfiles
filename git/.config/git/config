@@ -75,6 +75,7 @@
     untracked = cyan bold
 
 [diff]
+    algorithm = histogram
     tool = meld
 [difftool]
     prompt = false

@@ -1,5 +1,5 @@
 {
-	"color_scheme": "Packages/ayu/ayu-light.tmTheme",
+	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
 	"dictionary": "Packages/User/German_de_DE.dic",
 	"ensure_newline_at_eof_on_save": true,
 	"fade_fold_buttons": false,
@@ -9,7 +9,7 @@
 		"no_liga",
 		"no_clig"
 	],
-	"font_size": 24,
+	"font_size": 13,
 	"ignored_packages":
 	[
 		"Vintage"
