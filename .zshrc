@@ -103,7 +103,6 @@ plugins=(
   z
   fzf-z
 
-  zsh-bash # make the shell more Bash compatible. redefines the source command to act more like Bash does. Enables Bash completions.
   colored-man-pages
   #suse
   #chucknorris
