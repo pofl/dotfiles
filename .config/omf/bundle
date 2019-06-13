@@ -1,0 +1,6 @@
+package zypper
+theme default
+theme mars
+theme syl20bnr
+theme taktoa
+theme tomita
