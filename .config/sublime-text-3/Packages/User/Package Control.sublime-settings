@@ -1,0 +1,23 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"A File Icon",
+		"ayu",
+		"EasyDiff",
+		"Git",
+		"GitAutoCommit",
+		"GitGutter",
+		"MarkdownPreview",
+		"Origami",
+		"Package Control",
+		"Pretty JSON",
+		"Requester",
+		"Table Editor",
+		"TextFormatting",
+		"TrailingSpaces"
+	]
+}
