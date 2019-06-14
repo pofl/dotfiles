@@ -1,9 +1,10 @@
 [alias]
-    dog   = log --abbrev-commit --decorate --oneline --graph
-    adog  = log --abbrev-commit --decorate --oneline --graph --all
-    adogs = log --abbrev-commit --decorate --oneline --graph --all --simplify-by-decoration # shows a graph only containing the latest commits of each branch. This is great to find out how branches are related to eachother.
-    adg   = log --abbrev-commit --decorate           --graph --all
-    dg    = log --abbrev-commit --decorate           --graph
+    dg      = log --graph --decorate
+    dog     = log --graph --decorate --oneline
+    adg     = log --graph --decorate           --all
+    adog    = log --graph --decorate --oneline --all
+    reftree = log --graph --pretty=format:'%d' --all --simplify-by-decoration
+    adogs   = "!git reftree"
 
     alias = "!git config -l | grep alias | cut -c 7-" # List all aliases
     branch-name = "!git rev-parse --abbrev-ref HEAD" # May be used in other aliases
@@ -14,13 +15,13 @@
 
     precommit = diff --cached --diff-algorithm=minimal -w # I run this before every commit to make sure I don’t make mistakes while commiting.
     conflicts = diff --name-only --diff-filter=U # shows list of files that have a merge conflict
-    unmerged = conflicts
     del-orig = "!find . -name '*.orig' -delete" # delete all .orig files which were created when using mergetool
     loc-today = diff --shortstat "@{0 day ago}" # See how many lines of code you have written today
-    # Also: `git whatchanged —-since=‘2 weeks ago’`
     delete-deleted = remote update --prune # --dry-run # Remove local branches that have been deleted from your remote
-    search-log = log -S puppy # Search the commit history for a word and display matching commits.
+    # Also: `git whatchanged —-since=‘2 weeks ago’`
 
+    search-log = log -S # Search the commit history for a word and display matching commits.
+    file-log = log -p
     dirfftool = difftool --dir-diff
     wdiff = diff --word-diff
     untrack = rm --cached
@@ -42,7 +43,7 @@
 
     log1 = log --abbrev-commit --all --graph --color --date=short --pretty=format:'%C(bold yellow)%h%Creset%C(bold red)%d%Creset %s%C(dim white) %an %C(bold green)(%ad)%Creset'
     log2 = log --abbrev-commit --all --graph --color --date=iso --pretty=format:'%C(yellow)%h %C(bold red)%D%n''%C(white)%s%n''%C(dim white)%an (%ad)%n'' '
-    log3 = log --abbrev-commit --all --graph --color --date=iso --pretty=format:'┐%C(yellow)%h %C(bold red)%D%n''│%C(white)%s%n''╵%C(dim white)%an (%ad)'
+    log3 = log --abbrev-commit --all --graph --color --date=local --pretty=format:'╴%C(yellow)%h %C(bold red)%D%n'' %C(white)%s%n'' %C(dim white)%an (%ad)'
     # Unicode symbols for drawing https://unicode-table.com/en/search/?q=drawing
     lg = "!git log1"
     lgs = "!git lg --simplify-by-decoration"
@@ -56,6 +57,8 @@
     # -R - was on by default on my system, something related to colors
 [status]
     showStash = true # git-status(1) will display the number of entries currently stashed away
+[fetch]
+    prune = true # After fetching, remove any remote-tracking branches which no longer exist on the remote
 [merge]
     # ff = false # forbid fast-forward merges, because merge commits is historic information that doesn't hurt you and might be useful to somebody
 [rebase]
@@ -65,21 +68,15 @@
 [pull]
     ff = only # Do not allow merging the fetched branch unless it can be fast-forwarded
     # rebase = interactive # rebase -i branches on top of the fetched branch
-[color] # these add color to the output of various commands
-    ui = auto
-    branch = auto
-    diff = auto
-    grep = auto
-    interactive = auto
-    showbranch = auto
-    status = auto
+[color]
+    ui = auto # enabled by default since 1.8.6 - enables colored outputs for all commands if output goes to a terminal
 [color "status"]
-    added = green bold
-    changed = red bold
-    untracked = cyan bold
-
+    # added = green bold
+    # changed = red bold
+    # untracked = cyan bold
 [diff]
-    algorithm = minimal
+    colorMoved = default # Colors moved code differently
+    algorithm = minimal # This algorithm spends extra time to find the minimum diff
     tool = meld
 [difftool]
     prompt = false
@@ -89,4 +86,9 @@
 [merge]
     tool = meld
 [mergetool "meld"]
+    # Opens two tabs in meld. One compares $LOCAL and $REMOTE with $MERGED and the other compares them to $BASE
+    # $MERGED = the merged version (containing the conflicts)
+    # $BASE = the version of the file at the commit where the two branches were separated
+    # $REMOTE = the branch being merged into $LOCAL
+    # $LOCAL = the branch into which $REMOTE is merged
     cmd = meld --diff "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED" --diff "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
