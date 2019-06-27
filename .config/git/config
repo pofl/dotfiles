@@ -33,6 +33,7 @@
     set = reset --hard
     recommit = commit --amend
     unstage = reset HEAD
+    clean-fetch = fetch --prune # remove any remote-tracking references that no longer exist on the remote
 
     a = add
     b = branch
