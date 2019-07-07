@@ -19,7 +19,9 @@
     loc-today = diff --shortstat "@{0 day ago}" # See how many lines of code you have written today
     delete-deleted = remote update --prune # --dry-run # Remove local branches that have been deleted from your remote
     # Also: `git whatchanged —-since=‘2 weeks ago’`
+    new-worktree = git worktree add ../worktree2
 
+    minimal-clone = git clone --depth 1 # Create a shallow clone with history truncated to 1 commits
     search-log = log -S # Search the commit history for a word and display matching commits.
     file-log = log -p
     dirfftool = difftool --dir-diff
