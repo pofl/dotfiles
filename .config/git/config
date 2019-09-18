@@ -66,6 +66,7 @@
     # ff = false # forbid fast-forward merges, because merge commits is historic information that doesn't hurt you and might be useful to somebody
 [rebase]
     autoSquah = true # enable --autosquash option by default
+    autoStash = true # automatically create a temporary stash entry before rebasing
 [push]
     default = current # If you forget to include the name of the branch, with this option, git will try to push to the branch with the same name and will create it if it doesn't exist
 [pull]
@@ -86,6 +87,8 @@
 [difftool "meld"]
     # Required because otherwise git falls back to the command configured under mergetool
     cmd = meld "$LOCAL" "$REMOTE"
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
 [merge]
     tool = meld
 [mergetool "meld"]
@@ -95,3 +98,5 @@
     # $REMOTE = the branch being merged into $LOCAL
     # $LOCAL = the branch into which $REMOTE is merged
     cmd = meld --diff "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED" --diff "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+[mergetool "vscode"]
+    cmd = code --wait $MERGED

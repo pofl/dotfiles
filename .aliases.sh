@@ -7,6 +7,7 @@ alias www='python3 -m http.server 80' # start a web server in any folder you'd l
 alias ipe='curl ipinfo.io/ip' # display external IP
 alias ipi='ipconfig getifaddr en0' # display internal IP
 alias batt="upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage"
+alias explain_root_dirs="man 7 hier"
 
 alias g='git'
 alias ga='git add'
