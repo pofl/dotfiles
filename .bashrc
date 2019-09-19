@@ -42,8 +42,8 @@ function g() {
 
 # Default applications
 #export BROWSER=/usr/bin/firefox
-#export EDITOR=/usr/bin/vim
-#export VISUAL=/usr/bin/subl
+export EDITOR=/usr/bin/vim
+if [ -f /usr/bin/subl ] export VISUAL=/usr/bin/subl
 
 export LESS="-iMR"
 # -i - ignore case when searching (but respect case if search term contains uppercase letters)
