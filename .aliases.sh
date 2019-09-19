@@ -10,13 +10,6 @@ alias batt="upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percen
 alias explain_root_dirs="man 7 hier"
 
 alias g='git'
-alias ga='git add'
-alias gb='git branch'
-alias gc='git commit'
-alias gco='git checkout'
-alias gf='git fetch -p'
-alias gfa='git fetch --all -p'
-alias gs='git status'
 
 alias weath='curl wttr.in'
 

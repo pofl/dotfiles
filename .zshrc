@@ -91,7 +91,7 @@ ENHANCD_DOT_SHOW_FULLPATH=1
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
+  # git # Replaced by aliases.sh
   gitfast # faster but less featureful git autocompletion
   sbt
   scala
