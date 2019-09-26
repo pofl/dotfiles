@@ -159,6 +159,7 @@
 [difftool "vscode"]
     cmd = code --wait --diff $LOCAL $REMOTE
 [merge]
+    keepBackup = false
     tool = meld
 [mergetool "meld"]
     # Opens two tabs in meld. One compares $LOCAL and $REMOTE with $MERGED and the other compares them to $BASE
