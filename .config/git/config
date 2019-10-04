@@ -121,12 +121,6 @@
     lum = pull upstream master
 [core]
     editor = vim
-
-    pager = "less --tabs=4 -iXFR"
-    # -i - ignore case when searching (but respect case if search term contains uppercase letters)
-    # -X - do not clear screen on exit
-    # -F - exit if text is less then one screen long
-    # -R - was on by default on my system, something related to colors
 [status]
     showStash = true # git-status(1) will display the number of entries currently stashed away
 [fetch]

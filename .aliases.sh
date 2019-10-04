@@ -11,7 +11,7 @@ alias ll='ls -lAhF --group-directories-first'
 #export BROWSER=/usr/bin/firefox
 export EDITOR=/usr/bin/vim
 if [ -f /usr/bin/subl ] export VISUAL=/usr/bin/subl
-delta --version && export GIT_PAGER=delta
+delta --version && export GIT_PAGER='delta' || export GIT_PAGER='less --tabs=4 -iXFR'
 
 export LESS="-iMR"
 # -i - ignore case when searching (but respect case if search term contains uppercase letters)
