@@ -6,61 +6,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/home/pofl/.oh-my-zsh
 
-#ZSH_THEME="ys"
-#ZSH_THEME="bira"
-#ZSH_THEME="fishy"
-#ZSH_THEME="frisk"
-#ZSH_THEME="xiong-chiamiov-plus"
 ZSH_THEME="agnoster"
-#ZSH_THEME="powerlevel9k/powerlevel9k"
-#ZSH_THEME="bullet-train"
-
-BULLETTRAIN_CONTEXT_DEFAULT_USER="$USER"
-BULLETTRAIN_PROMPT_ADD_NEWLINE=false
-BULLETTRAIN_TIME_BG=cyan
-BULLETTRAIN_TIME_FG=black
-BULLETTRAIN_DIR_BG=yellow
-BULLETTRAIN_DIR_FG=black
-BULLETTRAIN_GIT_BG=blue
-BULLETTRAIN_EXEC_TIME_BG=green
-BULLETTRAIN_DIR_EXTENDED=2 #show complete path
-BULLETTRAIN_PROMPT_ORDER=(
-	time
-	custom
-	context
-	dir
-	git
-	cmd_exec_time
-	#status
-)
-
-POWERLEVEL9K_MODE='awesome-fontconfig'
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
-#    background_jobs - Indicator for background jobs.
-#    battery - Current battery status.
-#    context - Your username and host, conditionalized based on $USER and SSH status.
-#    dir - Your current working directory.
-#    dir_writable - Displays a lock icon, if you do not have write permissions on the current folder.
-#    disk_usage - Disk usage of your current partition.
-#    history - The command number for the current line.
-#    host - Your current host name
-#    ip - Shows the current IP address.
-#    vpn_ip - Shows the current VPN IP address.
-#    public_ip - Shows your public IP address.
-#    load - Your machine's load averages.
-#    os_icon - Display a nice little icon, depending on your operating system.
-#    ram - Show free RAM.
-#    root_indicator - An indicator if the user has superuser status.
-#    status - The return code of the previous command.
-#    swap - Prints the current swap size.
-#    time - System time.
-#    user - Your current username
-#    vi_mode- Your prompt's Vi editing mode (NORMAL|INSERT).
-#    ssh - Indicates whether or not you are in an SSH session.
-POWERLEVEL9K_PROMPT_ON_NEWLINE=false
-POWERLEVEL9K_STATUS_VERBOSE=true
-#POWERLEVEL9K_TIME_FORMAT="%D{%H:%M \uE868  %d.%m.%y}"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
