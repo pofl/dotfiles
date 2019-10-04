@@ -1,8 +1,5 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export TERM=xterm-256color
-alias sbt='TERM=xterm-color sbt'
-export SHELL=zsh
 
 # OH-MY-ZSH >>>>>>>>>>>>>>>>>>>>>>>
 
@@ -116,52 +113,13 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-
 # OH-MY-ZSH <<<<<<<<<<<<<<<<<<<<<<<
-
-# User configuration
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Aliases >>>>>>>>>>>>>>>>>>>>>>>>>
 alias su='ZDOTDIR=/home/pofl/ /bin/su --shell=/usr/bin/zsh'
+# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+export SHELL=zsh
 source ~/.aliases.sh
-# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
-function launch () {
-  nohup $@ > /dev/null &
-}
-function open () {
-  xdg-open "$1" &> /dev/null
-}
-alias O=open
-function git-sync () {
-  git add .
-  git commit -a -m "sync"
-  git pull --verbose --rebase origin master
-  git push --verbose origin master
-}
-function g() {
-  if [[ $# > 0 ]]; then
-    git $@
-  else
-    git status
-  fi
-}
-# NNN CONFIG >>>>>>>>>>>>>>>>>>>>>>
-export NNN_SHOW_HIDDEN=1
-export NNN_DE_FILE_MANAGER=nautilus
-export NNN_TMPFILE="/tmp/nnn"
-n() {
-  if [ -n "$1" ]; then
-    nnn "$1"
-  else
-    nnn
-  fi
-
-  if [ -f $NNN_TMPFILE ]; then
-    . $NNN_TMPFILE
-    rm $NNN_TMPFILE
-  fi
-}
-# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
