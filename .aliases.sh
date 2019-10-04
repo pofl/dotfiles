@@ -7,14 +7,6 @@ alias ll='ls -lAhF --group-directories-first'
 # Midnight Commander wrapper
 [ -f /usr/bin/mc ] && alias mc='. /usr/share/mc/mc-wrapper.sh'
 
-test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-alias www='python3 -m http.server 80' # start a web server in any folder you'd like
-alias ipe='curl ipinfo.io/ip' # display external IP
-alias ipi='ipconfig getifaddr en0' # display internal IP
-alias batt="upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage"
-alias explain_root_dirs="man 7 hier"
-alias weath='curl wttr.in'
-
 # Default applications
 #export BROWSER=/usr/bin/firefox
 export EDITOR=/usr/bin/vim
@@ -26,6 +18,14 @@ export LESS="-iMR"
 # -X - do not clear screen on exit
 # -F - exit if text is less than one screen long
 # -R - was on by default on my system, something related to colors
+
+test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+alias www='python3 -m http.server 80' # start a web server in any folder you'd like
+alias ipe='curl ipinfo.io/ip' # display external IP
+alias ipi='ipconfig getifaddr en0' # display internal IP
+alias batt="upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage"
+alias explain_root_dirs="man 7 hier"
+alias weath='curl wttr.in'
 
 if [ -e /usr/share/terminfo/x/xterm-256color ]; then
   export TERM='xterm-256color'
