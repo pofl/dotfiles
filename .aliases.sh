@@ -1,3 +1,7 @@
+# !$ argument of the last command
+# !^ first argument of the last command
+# !keyword skip Ctrl+R and run last command that contained keyword
+
 alias ls='ls --group-directories-first --hyperlink'
 alias ll='ls -lAhF --group-directories-first'
 # Replace ls with exa
@@ -9,9 +13,9 @@ alias ll='ls -lAhF --group-directories-first'
 
 # Default applications
 #export BROWSER=/usr/bin/firefox
-export EDITOR=/usr/bin/vim
-if [ -f /usr/bin/subl ] export VISUAL=/usr/bin/subl
-delta --version && export GIT_PAGER='delta' || export GIT_PAGER='less --tabs=4 -iXFR'
+export EDITOR='/usr/bin/vim'
+[ -f /usr/bin/subl ] && export VISUAL='/usr/bin/subl'
+delta --version > /dev/null && export GIT_PAGER='delta' || export GIT_PAGER='less --tabs=4 -iXFR'
 
 export LESS="-iMR"
 # -i - ignore case when searching (but respect case if search term contains uppercase letters)
@@ -35,14 +39,14 @@ fi
 
 alias sbt='TERM=xterm-color sbt'
 
-function launch () {
+function launch() {
   nohup $@ > /dev/null &
 }
-function open () {
+function open() {
   xdg-open "$1" &> /dev/null
 }
 alias O=open
-function git-sync () {
+function git_sync() {
   git add .
   git commit -a -m "sync"
   git pull --verbose --rebase origin master
@@ -85,32 +89,3 @@ n() {
   fi
 }
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
-# extract any archive
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-extract () {
-  if [ -f $1 ] ; then
-    case $1 in
-      *.tar.bz2)   tar xvjf $1    ;;
-      *.tar.gz)    tar xvzf $1    ;;
-      *.bz2)       bunzip2 $1     ;;
-      *.rar)       unrar x $1     ;;
-      *.gz)        gunzip $1      ;;
-      *.tar)       tar xvf $1     ;;
-      *.tbz2)      tar xvjf $1    ;;
-      *.tgz)       tar xvzf $1    ;;
-      *.zip)       unzip $1       ;;
-      *.Z)         uncompress $1  ;;
-      *.7z)        7z x $1        ;;
-      *)           echo "don't know how to extract '$1'..." ;;
-    esac
-  else
-    echo "'$1' is not a valid file!"
-  fi
-}
-# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
-# !$ argument of the last command
-# !^ first argument of the last command
-# !keyword skip Ctrl+R and run last command that contained keyword
-
