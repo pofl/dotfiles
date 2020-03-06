@@ -4,7 +4,7 @@
 # OH-MY-ZSH >>>>>>>>>>>>>>>>>>>>>>>
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/pofl/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="agnoster"
 
@@ -26,9 +26,6 @@ COMPLETION_WAITING_DOTS="true"
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-export ENHANCD_COMMAND=c
-ENHANCD_DOT_SHOW_FULLPATH=1
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -36,8 +33,6 @@ ENHANCD_DOT_SHOW_FULLPATH=1
 plugins=(
   # git # Replaced by aliases.sh
   gitfast # faster but less featureful git autocompletion
-  sbt
-  scala
 
   screen # automatic setting of window titles and status for GNU Screen
   sudo # ESC twice: Puts sudo in front of the current command, or the last one if the command line is empty.
@@ -58,6 +53,13 @@ plugins=(
   zsh-syntax-highlighting # should be last to source
 )
 
+# Only suggest corrections for commands, not arguments
+setopt CORRECT
+unsetopt CORRECTALL
+
+export ENHANCD_COMMAND=c
+ENHANCD_DOT_SHOW_FULLPATH=1
+
 source $ZSH/oh-my-zsh.sh
 # OH-MY-ZSH <<<<<<<<<<<<<<<<<<<<<<<
 
@@ -69,3 +71,4 @@ alias su='ZDOTDIR=/home/pofl/ /bin/su --shell=/usr/bin/zsh'
 
 export SHELL=zsh
 source ~/.aliases.sh
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"

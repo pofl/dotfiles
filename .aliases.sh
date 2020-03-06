@@ -5,17 +5,17 @@
 alias ls='ls --group-directories-first --hyperlink'
 alias ll='ls -lAhF --group-directories-first'
 # Replace ls with exa
-[ -f /usr/bin/exa ] && alias ls="exa --git --group-directories-first" && alias ll="ls -l --header" # Replace ls with exa
+which -s exa > /dev/null && alias ls="exa --git --group-directories-first" && alias ll="ls -l --header" # Replace ls with exa
 # Replace cat with bat
-[ -f /usr/bin/bat ] && alias cat="bat --tabs=4" # Replace cat with https://github.com/sharkdp/bat
+which -s bat > /dev/null && alias cat="bat --tabs=4" # Replace cat with https://github.com/sharkdp/bat
 # Midnight Commander wrapper
-[ -f /usr/bin/mc ] && alias mc='. /usr/share/mc/mc-wrapper.sh'
+[ -f /usr/share/mc/mc-wrapper.sh ] && alias mc='. /usr/share/mc/mc-wrapper.sh'
 
 # Default applications
 #export BROWSER=/usr/bin/firefox
 export EDITOR='/usr/bin/vim'
 [ -f /usr/bin/subl ] && export VISUAL='/usr/bin/subl'
-delta --version > /dev/null && export GIT_PAGER='delta' || export GIT_PAGER='less --tabs=4 -iXFR'
+which -s delta > /dev/null && export GIT_PAGER='delta' || export GIT_PAGER='less --tabs=4 -iXFR'
 
 export LESS="-iMR"
 # -i - ignore case when searching (but respect case if search term contains uppercase letters)
@@ -24,6 +24,8 @@ export LESS="-iMR"
 # -R - was on by default on my system, something related to colors
 
 test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+export GOPATH=$HOME/Documents/go
+
 alias www='python3 -m http.server 80' # start a web server in any folder you'd like
 alias ipe='curl ipinfo.io/ip' # display external IP
 alias ipi='ipconfig getifaddr en0' # display internal IP
