@@ -1,5 +1,10 @@
 # fzf-z
 
+**Note**: Personally I am no longer using this plugin actively, so I have archived it.
+If you're interested in taking it over, please let me know.
+
+---
+
 This plugin was originally inspired as a mashup between
 [fzf](https://github.com/junegunn/fzf), and oh-my-zsh's [z
 plugin](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/z),
@@ -11,6 +16,40 @@ plugin was invented to solve that problem, using `fzf` as a front-end. Since
 then, it's been extended to support [fasd](https://github.com/clvv/fasd) and
 [autojump](https://github.com/wting/autojump), other 'frecency' plugins, as
 alternatives to `z`.
+
+## Installation
+
+You can install `fzf-z` like any other `zsh` plugin. If you're not familiar
+with `zsh` plugins, using a plugin manager is the easiest way to install one.
+You can find information on some popular choices
+[here](https://wiki.archlinux.org/index.php/Zsh#Plugin_managers). `oh-my-zsh`
+and other configuration frameworks do not by themselves allow you to add custom
+plugins such as `fzf-z`; you'll likely need a plugin manager in addition.
+
+### Pre-requisites
+
+You must have one of these installed:
+
+* The [z
+plugin](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/z).
+
+* The [fasd](https://github.com/clvv/fasd) tool (my personal choice, and recommended
+if you are not already using one of these tools).
+
+* The [autojump](https://github.com/wting/autojump) tool.
+
+These tools must be in your `$PATH`. These have to be installed irrespective
+of how you use `fzf-z`.
+
+You must also have [fzf](https://github.com/junegunn/fzf) installed. You can
+set the full path to `fzf` binary with environment variable `FZF_BIN_PATH`, or
+it uses the one found in your `$PATH`.
+
+*Note*: When you first use `fzf-z`, if you have configured
+`FZFZ_RECENT_DIRS_TOOL` to use `z` (which is the default), it will dynamically
+download `z.sh` for its own internal use. You still need to have the [z
+plugin](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/z)
+installed anyway.
 
 ## Sources of information
 
@@ -35,27 +74,6 @@ in which they are shown in `fzf`, first to last):
    example:
 
    `export FZFZ_EXTRA_DIRS="~/MyDocuments '~/Desktop/Some Other Stuff'"`
-
-## Pre-requisites
-
-You must have one of these installed:
-
-* The [z
-plugin](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/z).
-
-* The [fasd](https://github.com/clvv/fasd) tool.
-
-* The [autojump](https://github.com/wting/autojump) tool.
-
-You must also have [fzf](https://github.com/junegunn/fzf) installed.
-
-These tools must be in your `$PATH`. These have to be installed irrespective
-of how you use `fzf-z`.
-
-*Note*: When you first use `fzf-z`, if you have configured `FZFZ_RECENT_DIRS_TOOL` to use `z` (which is the default). it will dynamically download `z.sh` for
-its own internal use. You still need to have the [z
-plugin](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/z)
-installed anyway.
 
 ## Ways to use fzf-z
 
