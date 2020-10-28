@@ -2,20 +2,26 @@
 # !^ first argument of the last command
 # !keyword skip Ctrl+R and run last command that contained keyword
 
+function is_installed() {
+  which $1 > /dev/null
+}
+
 alias ls='ls --group-directories-first --hyperlink'
 alias ll='ls -lAhF --group-directories-first'
 # Replace ls with exa
-which -s exa > /dev/null && alias ls="exa --git --group-directories-first" && alias ll="ls -l --header" # Replace ls with exa
+is_installed exa && alias ls="exa --git --group-directories-first" && alias ll="ls -l --header" # Replace ls with exa
 # Replace cat with bat
-which -s bat > /dev/null && alias cat="bat --tabs=4" # Replace cat with https://github.com/sharkdp/bat
+is_installed bat && alias cat="bat --tabs=4" # Replace cat with https://github.com/sharkdp/bat
 # Midnight Commander wrapper
 [ -f /usr/share/mc/mc-wrapper.sh ] && alias mc='. /usr/share/mc/mc-wrapper.sh'
 
 # Default applications
 #export BROWSER=/usr/bin/firefox
 export EDITOR='/usr/bin/vim'
-[ -f /usr/bin/subl ] && export VISUAL='/usr/bin/subl'
-which -s delta > /dev/null && export GIT_PAGER='delta' || export GIT_PAGER='less --tabs=4 -iXFR'
+is_installed micro && export EDITOR=micro
+# is_installed subl && export VISUAL=subl
+is_installed code && export VISUAL=code
+is_installed delta && export GIT_PAGER='delta' || export GIT_PAGER='less --tabs=4 -iXFR'
 
 export LESS="-iMR"
 # -i - ignore case when searching (but respect case if search term contains uppercase letters)
@@ -23,6 +29,7 @@ export LESS="-iMR"
 # -F - exit if text is less than one screen long
 # -R - was on by default on my system, something related to colors
 
+export PATH=$PATH:~/.local/bin
 test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 export GOPATH=$HOME/Documents/go
 
@@ -31,15 +38,7 @@ alias ipe='curl ipinfo.io/ip' # display external IP
 alias ipi='ipconfig getifaddr en0' # display internal IP
 alias batt="upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage"
 alias explain_root_dirs="man 7 hier"
-alias weath='curl wttr.in'
-
-if [ -e /usr/share/terminfo/x/xterm-256color ]; then
-  export TERM='xterm-256color'
-else
-  export TERM='xterm-color'
-fi
-
-alias sbt='TERM=xterm-color sbt'
+alias weather='curl v2.wttr.in'
 
 function launch() {
   nohup $@ > /dev/null &

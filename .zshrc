@@ -16,7 +16,7 @@ ZSH_THEME="agnoster"
 HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -40,6 +40,7 @@ plugins=(
   wd
   z
   fzf-z
+  dotenv
 
   colored-man-pages
   #suse
@@ -54,7 +55,7 @@ plugins=(
 )
 
 # Only suggest corrections for commands, not arguments
-setopt CORRECT
+unsetopt CORRECT
 unsetopt CORRECTALL
 
 export ENHANCD_COMMAND=c
@@ -71,4 +72,10 @@ alias su='ZDOTDIR=/home/pofl/ /bin/su --shell=/usr/bin/zsh'
 
 export SHELL=zsh
 source ~/.aliases.sh
-export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+export PATH="$GOPATH/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/pofl/google-cloud-sdk/path.zsh.inc' ]; then . '/home/pofl/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/pofl/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/pofl/google-cloud-sdk/completion.zsh.inc'; fi
