@@ -30,8 +30,7 @@ export LESS="-iMR"
 # -R - was on by default on my system, something related to colors
 
 export PATH=$PATH:~/.local/bin
-test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-export GOPATH=$HOME/Documents/go
+export GOPATH=$HOME/go
 
 alias www='python3 -m http.server 80' # start a web server in any folder you'd like
 alias ipe='curl ipinfo.io/ip' # display external IP
