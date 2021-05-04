@@ -6,6 +6,20 @@ function is_installed() {
   which $1 > /dev/null
 }
 
+# PATH stuff
+export PATH=$PATH:$HOME/.local/bin:$HOME/bin
+export GOROOT=$HOME/.go
+export GOPATH=$HOME/go
+export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
+java_home=/usr/lib/jvm/java-15-openjdk-amd64
+[ -d $java_home ] && export JAVA_HOME=$java_home
+
+# WSL stuff
+if grep microsoft /proc/version > /dev/null; then
+  export DISPLAY="$(sed -n 's/nameserver //p' /etc/resolv.conf):0"
+  alias idea="~/idea-IU-203.7717.56/bin/idea.sh"
+fi
+
 alias ls='ls --group-directories-first --hyperlink'
 alias ll='ls -lAhF --group-directories-first'
 # Replace ls with exa
@@ -28,9 +42,6 @@ export LESS="-iMR"
 # -X - do not clear screen on exit
 # -F - exit if text is less than one screen long
 # -R - was on by default on my system, something related to colors
-
-export PATH=$PATH:~/.local/bin
-export GOPATH=$HOME/go
 
 alias www='python3 -m http.server 80' # start a web server in any folder you'd like
 alias ipe='curl ipinfo.io/ip' # display external IP
