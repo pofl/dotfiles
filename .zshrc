@@ -54,6 +54,8 @@ plugins=(
   zsh-syntax-highlighting # should be last to source
 )
 
+ZSH_DOTENV_PROMPT=false
+
 # Only suggest corrections for commands, not arguments
 unsetopt CORRECT
 unsetopt CORRECTALL

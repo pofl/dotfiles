@@ -6,6 +6,8 @@ function is_installed() {
   which $1 > /dev/null
 }
 
+[ -d /home/linuxbrew/.linuxbrew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 # PATH stuff
 export PATH=$PATH:$HOME/.local/bin:$HOME/bin
 export GOROOT=$HOME/.go
