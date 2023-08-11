@@ -32,9 +32,6 @@ export BASH_IT_THEME='iterate'
 #export BASH_IT_THEME='powerline-minimal'
 #export BASH_IT_THEME='minimal'
 
-# Your place for hosting Git repos. I use this for private repos.
-export GIT_HOSTING='git@git.domain.com'
-
 # Don't check mail when opening terminal.
 unset MAILCHECK
 
@@ -53,4 +50,3 @@ export BASH_IT_AUTOMATIC_RELOAD_AFTER_CONFIG_CHANGE=1
 # Load Bash It
 [ -f $BASH_IT/bash_it.sh ] && source $BASH_IT/bash_it.sh
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-

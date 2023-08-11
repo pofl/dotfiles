@@ -8,17 +8,26 @@ function is_installed() {
 
 [ -d /home/linuxbrew/.linuxbrew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
+if is_installed oh-my-posh; then
+  eval "$(oh-my-posh init $(oh-my-posh get shell))"
+fi
+
 # PATH stuff
 export PATH=$PATH:$HOME/.local/bin:$HOME/bin
-export GOROOT=$HOME/.go
+# export GOROOT=$HOME/.go  # somehow setting this is not necessary anymore
+# export PATH="$GOROOT/bin:$PATH"
 export GOPATH=$HOME/go
-export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
-java_home=/usr/lib/jvm/java-15-openjdk-amd64
-[ -d $java_home ] && export JAVA_HOME=$java_home
+export PATH="$GOPATH/bin:$PATH"
+export JAVA_HOME=/home/pofl/.gradle/jdks/jdk-16.0.2+7 #/home/pofl/.jdks/corretto-15.0.2 #/usr/lib/jvm/java-16-openjdk-amd64
+if [ -d $java_home ]; then
+  export PATH=$PATH:$JAVA_HOME/bin
+else
+  echo "Current JAVA_HOME directory not found"
+fi
 
 # WSL stuff
 if grep microsoft /proc/version > /dev/null; then
-  export DISPLAY="$(sed -n 's/nameserver //p' /etc/resolv.conf):0"
+  # obsolete on Win11 due to WSLg # export DISPLAY="$(sed -n 's/nameserver //p' /etc/resolv.conf):0"
   alias idea="~/idea-IU-203.7717.56/bin/idea.sh"
 fi
 
@@ -44,6 +53,9 @@ export LESS="-iMR"
 # -X - do not clear screen on exit
 # -F - exit if text is less than one screen long
 # -R - was on by default on my system, something related to colors
+
+alias mkpr='gh pr create --web'
+alias setdotenv='export $(grep -v '^#' ./.env | xargs)'
 
 alias www='python3 -m http.server 80' # start a web server in any folder you'd like
 alias ipe='curl ipinfo.io/ip' # display external IP
