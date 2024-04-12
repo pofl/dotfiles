@@ -2,6 +2,10 @@
 # !^ first argument of the last command
 # !keyword skip Ctrl+R and run last command that contained keyword
 
+set -o allexport
+source ~/.env
+set +o allexport
+
 function is_installed() {
   which $1 > /dev/null
 }
@@ -18,7 +22,7 @@ export PATH=$PATH:$HOME/.local/bin:$HOME/bin
 # export PATH="$GOROOT/bin:$PATH"
 export GOPATH=$HOME/go
 export PATH="$GOPATH/bin:$PATH"
-export JAVA_HOME=/home/pofl/.gradle/jdks/jdk-16.0.2+7 #/home/pofl/.jdks/corretto-15.0.2 #/usr/lib/jvm/java-16-openjdk-amd64
+
 if [ -d $java_home ]; then
   export PATH=$PATH:$JAVA_HOME/bin
 else
