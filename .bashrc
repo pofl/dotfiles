@@ -9,12 +9,23 @@ bind 'set show-all-if-ambiguous on'
 # Source sensible-bash
 [ -f ~/.sensible.bash ] && source ~/.sensible.bash
 
+
+# Recurse .bashrc.d
+if [ -d ~/.bashrc.d ]; then
+    for rc in ~/.bashrc.d/*; do
+        if [ -f "$rc" ]; then
+            . "$rc"
+        fi
+    done
+fi
+unset rc
+
 # FZF CONFIG >>>>>>>>>>>>>>>>>>>>>>
 #export FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g "" 2> /dev/null'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-# Aliases >>>>><>>>>>>>>>>>>>>>>>>>
+# Aliases >>>>>>>>>>>>>>>>>>>>>>>>>
 alias su='/bin/su --command=bash\ --rcfile=/home/pofl/.bashrc'
 source ~/.aliases.sh
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
