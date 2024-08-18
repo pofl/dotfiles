@@ -7,7 +7,7 @@ source ~/.env
 set +o allexport
 
 function is_installed() {
-  which $1 > /dev/null
+  which $1 >/dev/null 2>&1
 }
 
 [ -d /home/linuxbrew/.linuxbrew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
@@ -22,6 +22,9 @@ export PATH=$PATH:$HOME/.local/bin:$HOME/bin
 # export PATH="$GOROOT/bin:$PATH"
 export GOPATH=$HOME/go
 export PATH="$GOPATH/bin:$PATH"
+if [ -d "$HOME/.cargo/env" ]; then
+  . "$HOME/.cargo/env"
+fi
 
 if [ -d $java_home ]; then
   export PATH=$PATH:$JAVA_HOME/bin
