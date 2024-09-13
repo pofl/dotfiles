@@ -1,0 +1,15 @@
+[Desktop Entry]
+Icon=/home/pofl/.local/opt/activitywatch/media/logo/logo.svg
+Exec=/home/pofl/.local/opt/activitywatch/aw-qt
+Version=1.0
+Type=Application
+Name=ActivityWatch
+GenericName=Time-tracking application
+Terminal=false
+X-GNOME-Autostart-enabled=true
+StartupNotify=true
+Hidden=false
+X-GNOME-Autostart-Delay=10
+X-MATE-Autostart-Delay=10
+X-KDE-autostart-after=panel
+Categories=Utility;
