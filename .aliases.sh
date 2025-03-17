@@ -26,6 +26,9 @@ if [ -d "$HOME/.cargo/env" ]; then
   . "$HOME/.cargo/env"
 fi
 
+# podman registry credentials. See `man podman-login`
+REGISTRY_AUTH_FILE="$HOME/.config/containers/auth.json"
+
 if [ -d $java_home ]; then
   export PATH=$PATH:$JAVA_HOME/bin
 else

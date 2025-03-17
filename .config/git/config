@@ -14,6 +14,7 @@
     unpublish = "!git push origin -d $(git branch-name)" # Delete the current branch on origin
     delete-merged = "!git branch --merged master | grep -v '^[ *]*master$' | xargs git branch -d" # Delete all local branches that were merged into master
     delete-merged-main = "!git branch --merged main | grep -v '^[ *]*main$' | xargs git branch -d" # Delete all local branches that were merged into master
+    dmm = delete-merged-main
 
     amendpush = "! git commit --amend --no-edit && git push --force-with-lease"
     addamendpush = "! git add -u && git amendpush"
