@@ -1,4 +1,8 @@
 [alias]
+    prs     = "!gh pr list"
+    approve = "!gh pr review --approve"
+    ghmerge = "!gh pr merge --delete-branch"
+
     dg      = log --graph --decorate
     dog     = log --graph --decorate --oneline
     adg     = log --graph --decorate           --all
@@ -12,9 +16,11 @@
     # branch-name = branch --show-current # Since Git 2.22
     publish = "!git push -u origin $(git branch-name)" # When you started new work on a private branch and want to publish it as a new public branch of the same name
     unpublish = "!git push origin -d $(git branch-name)" # Delete the current branch on origin
-    delete-merged = "!git branch --merged master | grep -v '^[ *]*master$' | xargs git branch -d" # Delete all local branches that were merged into master
-    delete-merged-main = "!git branch --merged main | grep -v '^[ *]*main$' | xargs git branch -d" # Delete all local branches that were merged into master
-    dmm = delete-merged-main
+
+    um = fetch origin main:main # Sync local main branch with remote main branch
+    delete-merged = "!git branch --merged main | grep -v '^[ *]*main$' | xargs git branch -d" # Delete all local branches that were merged into main
+    delete-merged-master = "!git branch --merged master | grep -v '^[ *]*master$' | xargs git branch -d" # Delete all local branches that were merged into master
+    dm = delete-merged
 
     amendpush = "! git commit --amend --no-edit && git push --force-with-lease"
     addamendpush = "! git add -u && git amendpush"

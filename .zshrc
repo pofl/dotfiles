@@ -75,7 +75,9 @@ alias su='ZDOTDIR=/home/pofl/ /bin/su --shell=/usr/bin/zsh'
 export SHELL=zsh
 source ~/.aliases.sh
 
-eval "$(oh-my-posh init zsh)"
+if is_installed kubectl; then
+  source <(kubectl completion zsh)
+fi
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/pofl/google-cloud-sdk/path.zsh.inc' ]; then . '/home/pofl/google-cloud-sdk/path.zsh.inc'; fi

@@ -28,6 +28,10 @@ unset rc
 # Aliases >>>>>>>>>>>>>>>>>>>>>>>>>
 alias su='/bin/su --command=bash\ --rcfile=/home/pofl/.bashrc'
 source ~/.aliases.sh
+
+if is_installed kubectl; then
+  source <(kubectl completion bash)
+fi
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 # BASH_IT CONFIG >>>>>>>>>>>>>>>>>>
