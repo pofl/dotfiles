@@ -35,6 +35,10 @@ else
   echo "Current JAVA_HOME directory not found"
 fi
 
+if is_installed mise; then
+  eval "$(mise activate $(basename "${SHELL:-bash}"))"
+fi
+
 # WSL stuff
 if grep microsoft /proc/version > /dev/null; then
   # obsolete on Win11 due to WSLg # export DISPLAY="$(sed -n 's/nameserver //p' /etc/resolv.conf):0"
