@@ -20,14 +20,13 @@ if [ -d ~/.bashrc.d ]; then
 fi
 unset rc
 
-# FZF CONFIG >>>>>>>>>>>>>>>>>>>>>>
-#export FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g "" 2> /dev/null'
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
 # Aliases >>>>>>>>>>>>>>>>>>>>>>>>>
 alias su='/bin/su --command=bash\ --rcfile=/home/pofl/.bashrc'
 source ~/.aliases.sh
+
+if is_installed fzf; then
+  eval "$(fzf --bash)"
+fi
 
 if is_installed kubectl; then
   source <(kubectl completion bash)

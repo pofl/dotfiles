@@ -66,14 +66,16 @@ ENHANCD_DOT_SHOW_FULLPATH=1
 source $ZSH/oh-my-zsh.sh
 # OH-MY-ZSH <<<<<<<<<<<<<<<<<<<<<<<
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # Aliases >>>>>>>>>>>>>>>>>>>>>>>>>
 alias su='ZDOTDIR=/home/pofl/ /bin/su --shell=/usr/bin/zsh'
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 export SHELL=zsh
 source ~/.aliases.sh
+
+if is_installed fzf; then
+  source <(fzf --zsh)
+fi
 
 if is_installed kubectl; then
   source <(kubectl completion zsh)
