@@ -69,7 +69,32 @@ export LESS="-iMR"
 # -R - was on by default on my system, something related to colors
 
 alias mkpr='gh pr create --web'
+alias ow='opencode web'
 alias setdotenv='export $(grep -v '^#' ./.env | xargs)'
+
+mkwt() {
+  # Ensure we have a branch name
+  local branch_name="$1"
+  if [[ -z "$branch_name" ]]; then
+    echo "Usage: mkwt <branch_name>" >&2
+    return 1
+  fi
+
+  # Ensure we are in a git repository
+  if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    echo "Error: Not a git repository" >&2
+    return 1
+  fi
+
+  # Get the repo root path and define worktree path
+  local repo_root=$(git rev-parse --show-toplevel)
+  local wt_path="${repo_root}.worktrees/${branch_name}"
+
+  echo "Creating worktree for branch '$branch_name' at '$wt_path'..." >&2
+  git worktree add -b "$branch_name" "$wt_path" origin/main >&2
+
+  echo "$wt_path"
+}
 
 alias www='python3 -m http.server 80' # start a web server in any folder you'd like
 alias ipe='curl ipinfo.io/ip' # display external IP
