@@ -85,17 +85,30 @@ mkwt() {
     return 1
   fi
 
-  local start_point="${2:-origin/main}"
+  # Use the optional second arg as the new branch's starting point; with origin/main as fallback.
+  local base_ref="${2:-origin/main}"
 
-  # Get the repo root path and define worktree path
-  local repo_root=$(git rev-parse --show-toplevel)
+  # Locate the main repo by asking Git for the shared .git directory as an absolute path. This is necessary because the
+  # new worktree should be created in the canonical location even if this function is called from inside another
+  # worktree.
+  local git_common_dir
+  git_common_dir=$(git rev-parse --path-format=absolute --git-common-dir) || {
+    echo "Error: Could not resolve repository root" >&2
+    return 1
+  }
+
+  # Strip the trailing /.git to get the main repository checkout path, which is where the .worktrees directory belongs.
+  local repo_root="${git_common_dir%/.git}"
+
+  # Build the canonical worktrees directory under the main repository.
   local worktrees_root="${repo_root}.worktrees"
   local wt_path="${worktrees_root}/${branch_name}"
 
-  echo "Creating worktree for branch '$branch_name' at '$wt_path' from '$start_point'..." >&2
+  echo "Creating worktree for branch '$branch_name' at '$wt_path' from '$base_ref'..." >&2
   mkdir --parents "$worktrees_root"
-  git worktree add --no-track -b "$branch_name" "$wt_path" "$start_point" >&2
 
+  # Create the worktree without tracking an upstream branch.
+  git worktree add --no-track -b "$branch_name" "$wt_path" "$base_ref" >&2
   code "$wt_path"
 }
 
