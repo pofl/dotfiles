@@ -18,8 +18,7 @@ fi
 
 # PATH stuff
 export PATH=$PATH:$HOME/.local/bin:$HOME/bin
-# export GOROOT=$HOME/.go  # somehow setting this is not necessary anymore
-# export PATH="$GOROOT/bin:$PATH"
+
 export GOPATH=$HOME/go
 export PATH="$GOPATH/bin:$PATH"
 if [ -d "$HOME/.cargo/env" ]; then
@@ -41,8 +40,7 @@ fi
 
 # WSL stuff
 if grep microsoft /proc/version > /dev/null; then
-  # obsolete on Win11 due to WSLg # export DISPLAY="$(sed -n 's/nameserver //p' /etc/resolv.conf):0"
-  alias idea="~/idea-IU-203.7717.56/bin/idea.sh"
+  true # noop
 fi
 
 alias ls='ls --group-directories-first --hyperlink'
@@ -69,6 +67,7 @@ export LESS="-iMR"
 # -R - was on by default on my system, something related to colors
 
 alias mkpr='gh pr create --web'
+alias oc='opencode'
 alias ow='opencode web'
 alias setdotenv='export $(grep -v '^#' ./.env | xargs)'
 
@@ -76,7 +75,7 @@ mkwt() {
   # Ensure we have a branch name
   local branch_name="$1"
   if [[ -z "$branch_name" ]]; then
-    echo "Usage: mkwt <branch_name>" >&2
+    echo "Usage: mkwt <branch_name> [start_point]" >&2
     return 1
   fi
 
@@ -86,14 +85,18 @@ mkwt() {
     return 1
   fi
 
+  local start_point="${2:-origin/main}"
+
   # Get the repo root path and define worktree path
   local repo_root=$(git rev-parse --show-toplevel)
-  local wt_path="${repo_root}.worktrees/${branch_name}"
+  local worktrees_root="${repo_root}.worktrees"
+  local wt_path="${worktrees_root}/${branch_name}"
 
-  echo "Creating worktree for branch '$branch_name' at '$wt_path'..." >&2
-  git worktree add -b "$branch_name" "$wt_path" origin/main >&2
+  echo "Creating worktree for branch '$branch_name' at '$wt_path' from '$start_point'..." >&2
+  mkdir --parents "$worktrees_root"
+  git worktree add --no-track -b "$branch_name" "$wt_path" "$start_point" >&2
 
-  echo "$wt_path"
+  code "$wt_path"
 }
 
 alias www='python3 -m http.server 80' # start a web server in any folder you'd like

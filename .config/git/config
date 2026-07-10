@@ -18,7 +18,7 @@
     unpublish = "!git push origin -d $(git branch-name)" # Delete the current branch on origin
 
     um = fetch origin main:main # Sync local main branch with remote main branch
-    mm = merge main
+    mm = merge main --no-edit
     delete-merged = "!git branch --merged main | grep -v '^[ *]*main$' | xargs git branch -d" # Delete all local branches that were merged into main
     delete-merged-master = "!git branch --merged master | grep -v '^[ *]*master$' | xargs git branch -d" # Delete all local branches that were merged into master
     dm = delete-merged
@@ -60,7 +60,7 @@
     c = commit -v
     cam = commit -am
     co = checkout
-    cob = checkout -b
+    cob = checkout -B
     cp = cherry-pick
     cpa = cherry-pick --abort
     cpc = cherry-pick --continue
