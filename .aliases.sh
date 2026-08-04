@@ -58,7 +58,9 @@ export EDITOR='/usr/bin/vim'
 is_installed micro && export EDITOR=micro
 # is_installed subl && export VISUAL=subl
 is_installed code && export VISUAL=code
-is_installed delta && export GIT_PAGER='delta' || export GIT_PAGER='less --tabs=4 -iXFR'
+
+# deactivated because coding agents don't expect some commands to be interactive and get stuck
+# is_installed delta && export GIT_PAGER='delta' || export GIT_PAGER='less --tabs=4 -iXFR'
 
 export LESS="-iMR"
 # -i - ignore case when searching (but respect case if search term contains uppercase letters)
@@ -139,6 +141,10 @@ function g() {
     git status
   fi
 }
+
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+  source /etc/profile.d/vte.sh
+fi
 
 # Colored man output
 export MANROFFOPT='-c'
