@@ -69,6 +69,7 @@ export LESS="-iMR"
 # -R - was on by default on my system, something related to colors
 
 alias mkpr='gh pr create --web'
+alias mr='mise run'
 alias oc='opencode'
 alias ow='opencode web'
 alias setdotenv='export $(grep -v '^#' ./.env | xargs)'

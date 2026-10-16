@@ -64,6 +64,12 @@ export ENHANCD_COMMAND=c
 ENHANCD_DOT_SHOW_FULLPATH=1
 
 source $ZSH/oh-my-zsh.sh
+
+# Keep more command history and preserve entries across shell sessions.
+HISTSIZE=100000
+SAVEHIST=200000
+setopt APPEND_HISTORY
+
 # OH-MY-ZSH <<<<<<<<<<<<<<<<<<<<<<<
 
 # Aliases >>>>>>>>>>>>>>>>>>>>>>>>>

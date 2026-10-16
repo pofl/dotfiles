@@ -9,6 +9,10 @@ bind 'set show-all-if-ambiguous on'
 # Source sensible-bash
 [ -f ~/.sensible.bash ] && source ~/.sensible.bash
 
+# Keep more command history and preserve entries across shell sessions.
+HISTSIZE=100000
+HISTFILESIZE=200000
+shopt -s histappend
 
 # Recurse .bashrc.d
 if [ -d ~/.bashrc.d ]; then
